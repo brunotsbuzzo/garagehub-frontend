@@ -9,6 +9,8 @@ import TypographyShowcase from './styleguide/components/typography/page'
 import DividerShowcase from './styleguide/components/divider/page'
 import FormShowcase from './styleguide/components/form/page'
 import GridShowcase from './styleguide/components/grid/page'
+import LayoutShowcase from './styleguide/components/layout/page'
+import SpaceShowcase from './styleguide/components/space/page'
 import Placeholder from './styleguide/components/Placeholder'
 import './index.css'
 
@@ -48,6 +50,8 @@ const componentMap = {
   divider:     DividerShowcase,
   form:        FormShowcase,
   grid:        GridShowcase,
+  layout:      LayoutShowcase,
+  space:       SpaceShowcase,
 }
 
 function ComponentPage() {
