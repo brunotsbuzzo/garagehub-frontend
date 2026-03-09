@@ -11,6 +11,7 @@ import FormShowcase from './styleguide/components/form/page'
 import GridShowcase from './styleguide/components/grid/page'
 import LayoutShowcase from './styleguide/components/layout/page'
 import SpaceShowcase from './styleguide/components/space/page'
+import AnchorShowcase from './styleguide/components/anchor/page'
 import Placeholder from './styleguide/components/Placeholder'
 import './index.css'
 
@@ -52,6 +53,7 @@ const componentMap = {
   grid:        GridShowcase,
   layout:      LayoutShowcase,
   space:       SpaceShowcase,
+  anchor:      AnchorShowcase,
 }
 
 function ComponentPage() {

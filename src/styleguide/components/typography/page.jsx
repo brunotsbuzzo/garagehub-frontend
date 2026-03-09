@@ -150,7 +150,7 @@ export default function TypographyShowcase() {
           type="info"
           showIcon
           style={{ borderRadius: 8 }}
-          message="Fonte do projeto: Inter"
+          title="Fonte do projeto: Inter"
           description={
             <span>
               O GarageHub Design System usa a fonte{' '}
@@ -226,7 +226,7 @@ const { Title } = Typography
 <Title level={3} type="danger">Perigo</Title>
 <Title level={3} italic>Itálico</Title>`}
         >
-          <Space direction="vertical" size={4} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={4} style={{ width: '100%' }}>
             <Title level={3} type="secondary" style={{ margin: 0 }}>Secundário</Title>
             <Title level={3} type="success" style={{ margin: 0 }}>Sucesso</Title>
             <Title level={3} type="warning" style={{ margin: 0 }}>Aviso</Title>
@@ -354,7 +354,7 @@ const { Title } = Typography
   ABC-1234
 </Text>`}
         >
-          <Space direction="vertical" size={16}>
+          <Space orientation="vertical" size={16}>
             <div>
               <Text style={{ fontSize: 12, color: G[400], display: 'block', marginBottom: 6 }}>
                 Simples
@@ -392,7 +392,7 @@ const { Title } = Typography
 
 <Text editable={{ onChange: setValue }}>{value}</Text>`}
         >
-          <Space direction="vertical" size={12}>
+          <Space orientation="vertical" size={12}>
             <Text style={{ fontSize: 12, color: G[400] }}>Clique no lápis para editar:</Text>
             <Text
               editable={{ onChange: setEditText }}
@@ -505,7 +505,7 @@ const { Title } = Typography
   {longText}
 </Paragraph>`}
         >
-          <Space direction="vertical" size={20} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={20} style={{ width: '100%' }}>
             <div>
               <Text style={{ fontSize: 12, color: G[400], display: 'block', marginBottom: 6 }}>
                 {expandable ? 'Expandable' : 'Fixo'} · {ellipsisRows} {ellipsisRows === 1 ? 'linha' : 'linhas'}
@@ -704,7 +704,7 @@ const { Link } = Typography
 
       {/* ── 9. Acessibilidade ───────────────────────────────── */}
       <Section id="a11y" title="Acessibilidade">
-        <Space direction="vertical" size={8} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={8} style={{ width: '100%' }}>
           {[
             ['Hierarquia de headings', 'Use Title em ordem sequencial (h1 → h2 → h3) — nunca pule níveis. A hierarquia correta é essencial para leitores de tela e SEO.'],
             ['Não use heading para estilo', 'Se precisar de texto grande sem significado semântico de heading, use Text com style.fontSize. Headings comunicam estrutura, não aparência.'],

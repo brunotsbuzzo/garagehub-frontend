@@ -148,7 +148,7 @@ const apiData = [
   { key: 'direction', prop: 'direction', type: "'horizontal' | 'vertical'",               default: "'horizontal'", description: 'Direção do eixo principal' },
   { key: 'size',      prop: 'size',      type: "'small' | 'middle' | 'large' | number | [h, v]", default: "'small'", description: 'Espaçamento entre itens. Array define [horizontal, vertical]' },
   { key: 'wrap',      prop: 'wrap',      type: 'boolean',                                 default: 'false',    description: 'Permite quebra de linha quando o espaço é insuficiente' },
-  { key: 'split',     prop: 'split',     type: 'ReactNode',                               default: '—',        description: 'Elemento separador entre cada item (ex: <Divider type="vertical" />)' },
+  { key: 'split',     prop: 'split',     type: 'ReactNode',                               default: '—',        description: 'Elemento separador entre cada item (ex: <Divider orientation="vertical" />)' },
   { key: 'classNames',prop: 'classNames',type: '{ item?: string }',                       default: '—',        description: 'Classe CSS aplicada a cada item wrapper interno' },
   { key: 'styles',    prop: 'styles',    type: '{ item?: CSSProperties }',                default: '—',        description: 'Estilos inline de cada item wrapper interno' },
 ]
@@ -201,7 +201,7 @@ export default function SpaceShowcase() {
           type="info"
           showIcon
           style={{ borderRadius: 8 }}
-          message="Space vs Grid"
+          title="Space vs Grid"
           description={
             <span>
               Use <Text code>{'<Space>'}</Text> para agrupar <strong>poucos elementos</strong> com
@@ -224,7 +224,7 @@ export default function SpaceShowcase() {
 <Space size="large">…</Space>    {/* gap: 24px */}
 <Space size={32}>…</Space>       {/* gap: 32px — valor customizado */}`}
         >
-          <Space direction="vertical" size={24} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={24} style={{ width: '100%' }}>
             {(['small', 'middle', 'large'] ).map(s => (
               <div key={s}>
                 <Text style={{ fontSize: 11, color: G[400], display: 'block', marginBottom: 6 }}>
@@ -269,14 +269,14 @@ export default function SpaceShowcase() {
       >
         <DemoCard
           code={`{/* Horizontal (padrão) */}
-<Space direction="horizontal" size="middle">
+<Space orientation="horizontal" size="middle">
   <Button type="primary">Salvar</Button>
   <Button>Cancelar</Button>
   <Button danger>Excluir</Button>
 </Space>
 
 {/* Vertical */}
-<Space direction="vertical" size="middle" style={{ width: '100%' }}>
+<Space orientation="vertical" size="middle" style={{ width: '100%' }}>
   <Button type="primary" block>Confirmar agendamento</Button>
   <Button block>Adiar para amanhã</Button>
   <Button danger block>Cancelar serviço</Button>
@@ -285,9 +285,9 @@ export default function SpaceShowcase() {
           <Row gutter={48}>
             <Col xs={24} sm={12}>
               <Text style={{ fontSize: 11, color: G[400], display: 'block', marginBottom: 10 }}>
-                direction=<Text code style={{ fontSize: 11 }}>"horizontal"</Text>
+                orientation=<Text code style={{ fontSize: 11 }}>"horizontal"</Text>
               </Text>
-              <Space direction="horizontal" size="middle">
+              <Space orientation="horizontal" size="middle">
                 <Button type="primary">Salvar</Button>
                 <Button>Cancelar</Button>
                 <Button danger>Excluir</Button>
@@ -295,9 +295,9 @@ export default function SpaceShowcase() {
             </Col>
             <Col xs={24} sm={12}>
               <Text style={{ fontSize: 11, color: G[400], display: 'block', marginBottom: 10 }}>
-                direction=<Text code style={{ fontSize: 11 }}>"vertical"</Text>
+                orientation=<Text code style={{ fontSize: 11 }}>"vertical"</Text>
               </Text>
-              <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+              <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
                 <Button type="primary" block>Confirmar agendamento</Button>
                 <Button block>Adiar para amanhã</Button>
                 <Button danger block>Cancelar serviço</Button>
@@ -398,83 +398,105 @@ export default function SpaceShowcase() {
         </DemoCard>
       </Section>
 
-      {/* ── 5. Split ────────────────────────────────────────── */}
+      {/* ── 5. Separadores inline ────────────────────────────── */}
       <Section
         id="split"
-        title="Split — Separador customizado"
-        description="A prop split insere um nó React entre cada item — tipicamente um Divider vertical."
+        title="Separadores inline"
+        description="No antd v6 use flatMap para intercalar separadores entre itens — mantém controle total sem depender de props descontinuadas."
       >
         <DemoCard
-          code={`import { Space, Divider } from 'antd'
+          code={`{/* Padrão v6: intercalar separadores com flatMap */}
+const actions = ['Editar', 'Imprimir', 'Compartilhar', 'Excluir']
 
-{/* Divider vertical nativo */}
-<Space split={<Divider type="vertical" />}>
-  <a>Editar</a>
-  <a>Duplicar</a>
-  <a style={{ color: '#FF4D4F' }}>Excluir</a>
-</Space>
+<div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+  {actions.flatMap((label, i) => {
+    const btn = <Button key={label} type="link" size="small">{label}</Button>
+    return i === 0 ? [btn] : [
+      <Divider key={'d'+i} orientation="vertical" style={{ margin: '0 2px' }} />,
+      btn,
+    ]
+  })}
+</div>
 
-{/* Separador customizado */}
-<Space split={<span style={{ color: '#D1D5DB' }}>·</span>}>
-  <Text>Veículos: 1.284</Text>
-  <Text>Serviços: 127</Text>
-  <Text>Oficinas: 38</Text>
-</Space>`}
+{/* Separador customizado · */}
+<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+  <Text><strong>1.284</strong> Veículos</Text>
+  <Text style={{ color: '#D1D5DB' }}>·</Text>
+  <Text><strong>127</strong> Serviços</Text>
+  <Text style={{ color: '#D1D5DB' }}>·</Text>
+  <Text><strong>38</strong> Oficinas</Text>
+</div>`}
         >
-          <Space direction="vertical" size={20} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={20} style={{ width: '100%' }}>
             <div>
               <Text style={{ fontSize: 11, color: G[400], display: 'block', marginBottom: 8 }}>
-                split=<Text code style={{ fontSize: 11 }}>{'<Divider type="vertical" />'}</Text>
+                Divider vertical via <Text code style={{ fontSize: 11 }}>flatMap</Text>
               </Text>
-              <Space split={<Divider type="vertical" style={{ margin: '0 2px' }} />}>
-                <Button type="link" size="small" icon={<EditOutlined />} style={{ padding: 0 }}>Editar</Button>
-                <Button type="link" size="small" icon={<PrinterOutlined />} style={{ padding: 0 }}>Imprimir</Button>
-                <Button type="link" size="small" icon={<ShareAltOutlined />} style={{ padding: 0 }}>Compartilhar</Button>
-                <Button type="link" size="small" danger icon={<DeleteOutlined />} style={{ padding: 0 }}>Excluir</Button>
-              </Space>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                {[
+                  { label: 'Editar',        icon: <EditOutlined />,     danger: false },
+                  { label: 'Imprimir',      icon: <PrinterOutlined />,  danger: false },
+                  { label: 'Compartilhar',  icon: <ShareAltOutlined />, danger: false },
+                  { label: 'Excluir',       icon: <DeleteOutlined />,   danger: true },
+                ].flatMap((item, i) => {
+                  const btn = (
+                    <Button key={item.label} type="link" size="small" icon={item.icon} danger={item.danger} style={{ padding: 0 }}>
+                      {item.label}
+                    </Button>
+                  )
+                  return i === 0 ? [btn] : [
+                    <Divider key={`d${i}`} orientation="vertical" style={{ margin: '0 2px' }} />,
+                    btn,
+                  ]
+                })}
+              </div>
             </div>
 
             <div>
               <Text style={{ fontSize: 11, color: G[400], display: 'block', marginBottom: 8 }}>
-                split customizado — separador <Text code style={{ fontSize: 11 }}>·</Text>
+                Separador <Text code style={{ fontSize: 11 }}>·</Text> — stats inline
               </Text>
-              <Space split={<Text style={{ color: G[300] }}>·</Text>} size="middle">
-                <Text style={{ fontSize: 13 }}>
-                  <Text strong style={{ color: PRIMARY_DK }}>1.284</Text>
-                  <Text style={{ color: G[500], marginLeft: 4 }}>Veículos</Text>
-                </Text>
-                <Text style={{ fontSize: 13 }}>
-                  <Text strong style={{ color: '#FAAD14' }}>127</Text>
-                  <Text style={{ color: G[500], marginLeft: 4 }}>Serviços</Text>
-                </Text>
-                <Text style={{ fontSize: 13 }}>
-                  <Text strong style={{ color: G[700] }}>38</Text>
-                  <Text style={{ color: G[500], marginLeft: 4 }}>Oficinas</Text>
-                </Text>
-                <Text style={{ fontSize: 13 }}>
-                  <Text strong style={{ color: '#52C41A' }}>94,2%</Text>
-                  <Text style={{ color: G[500], marginLeft: 4 }}>Conclusão</Text>
-                </Text>
-              </Space>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                {[
+                  { value: '1.284', label: 'Veículos',  color: PRIMARY_DK },
+                  { value: '+127',  label: 'Serviços',  color: '#FAAD14' },
+                  { value: '38',    label: 'Oficinas',  color: G[700] },
+                  { value: '94,2%', label: 'Conclusão', color: '#52C41A' },
+                ].flatMap((stat, i) => {
+                  const el = (
+                    <Text key={stat.label} style={{ fontSize: 13 }}>
+                      <Text strong style={{ color: stat.color }}>{stat.value}</Text>
+                      <Text style={{ color: G[500], marginLeft: 4 }}>{stat.label}</Text>
+                    </Text>
+                  )
+                  return i === 0 ? [el] : [
+                    <Text key={`s${i}`} style={{ color: G[300] }}>·</Text>,
+                    el,
+                  ]
+                })}
+              </div>
             </div>
 
             <div>
               <Text style={{ fontSize: 11, color: G[400], display: 'block', marginBottom: 8 }}>
-                split com Avatar — lista de membros
+                Divider vertical — lista de membros
               </Text>
-              <Space split={<Divider type="vertical" />} size="middle" wrap>
-                {['Carlos M.', 'Ana P.', 'Ricardo S.', 'Patrícia L.'].map((name, i) => (
-                  <Space key={name} size={6}>
-                    <Avatar
-                      size={22}
-                      style={{ background: [PRIMARY, '#FAAD14', '#1677FF', '#FF4D4F'][i], fontSize: 10 }}
-                    >
-                      {name[0]}
-                    </Avatar>
-                    <Text style={{ fontSize: 12, color: G[700] }}>{name}</Text>
-                  </Space>
-                ))}
-              </Space>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                {['Carlos M.', 'Ana P.', 'Ricardo S.', 'Patrícia L.'].flatMap((name, i) => {
+                  const el = (
+                    <Space key={name} size={6}>
+                      <Avatar size={22} style={{ background: [PRIMARY, '#FAAD14', '#1677FF', '#FF4D4F'][i], fontSize: 10 }}>
+                        {name[0]}
+                      </Avatar>
+                      <Text style={{ fontSize: 12, color: G[700] }}>{name}</Text>
+                    </Space>
+                  )
+                  return i === 0 ? [el] : [
+                    <Divider key={`d${i}`} orientation="vertical" style={{ height: 16 }} />,
+                    el,
+                  ]
+                })}
+              </div>
             </div>
           </Space>
         </DemoCard>
@@ -565,7 +587,7 @@ export default function SpaceShowcase() {
           alignItems: 'center',
         }}>
           <Space
-            direction={direction}
+            orientation={direction}
             size={isCustom ? customSize : size}
             align={align}
             wrap={wrap}
@@ -580,7 +602,7 @@ export default function SpaceShowcase() {
         </div>
 
         <CodeBlock code={`<Space
-  direction="${direction}"
+  orientation="${direction}"
   size={${isCustom ? customSize : `"${size}"`}}
   align="${align}"
   wrap={${wrap}}
@@ -611,10 +633,11 @@ export default function SpaceShowcase() {
     <Button icon={<FilterOutlined />}>Filtros</Button>
     <Button icon={<DownloadOutlined />}>Exportar</Button>
   </Space>
-  <Space split={<Divider type="vertical" />} size="small">
+  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
     <Text type="secondary">1.284 registros</Text>
+    <Text style={{ color: '#D1D5DB' }}>|</Text>
     <Text type="secondary">Página 1 de 54</Text>
-  </Space>
+  </div>
 </div>`}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
@@ -623,10 +646,11 @@ export default function SpaceShowcase() {
               <Button icon={<FilterOutlined />}>Filtros</Button>
               <Button icon={<DownloadOutlined />}>Exportar</Button>
             </Space>
-            <Space split={<Divider type="vertical" />} size="small">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <Text style={{ fontSize: 12, color: G[500] }}>1.284 registros</Text>
+              <Text style={{ color: G[300] }}>|</Text>
               <Text style={{ fontSize: 12, color: G[500] }}>Página 1 de 54</Text>
-            </Space>
+            </div>
           </div>
         </DemoCard>
 
@@ -672,12 +696,14 @@ export default function SpaceShowcase() {
     </Space>
   }
 >
-  <Space direction="vertical" size={4} style={{ width: '100%' }}>
-    <Space split={<Text style={{ color: '#D1D5DB' }}>·</Text>} size="middle">
+  <Space orientation="vertical" size={4} style={{ width: '100%' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>
       <Text type="secondary">Placa: ABC-1234</Text>
+      <Text style={{ color: '#D1D5DB' }}>·</Text>
       <Text type="secondary">KM: 45.320</Text>
+      <Text style={{ color: '#D1D5DB' }}>·</Text>
       <Text type="secondary">Cor: Prata</Text>
-    </Space>
+    </div>
     <Space>
       <Text type="secondary">Dono:</Text>
       <Avatar size={20} icon={<UserOutlined />} />
@@ -709,14 +735,16 @@ export default function SpaceShowcase() {
                 <Button size="small" danger icon={<DeleteOutlined />} />
               </Space>
             }
-            bodyStyle={{ padding: '14px 16px' }}
+            styles={{ body: { padding: '14px 16px' } }}
           >
-            <Space direction="vertical" size={8} style={{ width: '100%' }}>
-              <Space split={<Text style={{ color: G[300] }}>·</Text>} size="middle" wrap>
+            <Space orientation="vertical" size={8} style={{ width: '100%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>
                 <Text style={{ fontSize: 13, color: G[500] }}>Placa: <Text strong style={{ color: G[700] }}>ABC-1234</Text></Text>
+                <Text style={{ color: G[300] }}>·</Text>
                 <Text style={{ fontSize: 13, color: G[500] }}>KM: <Text strong style={{ color: G[700] }}>45.320</Text></Text>
+                <Text style={{ color: G[300] }}>·</Text>
                 <Text style={{ fontSize: 13, color: G[500] }}>Cor: <Text strong style={{ color: G[700] }}>Prata</Text></Text>
-              </Space>
+              </div>
               <Space size={6} align="center">
                 <Text style={{ fontSize: 13, color: G[500] }}>Responsável:</Text>
                 <Avatar size={20} style={{ background: PRIMARY, fontSize: 10 }}>J</Avatar>
@@ -739,31 +767,43 @@ export default function SpaceShowcase() {
           <Text strong style={{ fontSize: 13, color: G[700] }}>Stepper de status inline</Text>
         </div>
         <DemoCard
-          code={`<Space split={<ArrowRightOutlined style={{ color: '#D1D5DB', fontSize: 10 }} />} size="small" wrap>
-  <Tag color="success" icon={<CheckCircleOutlined />}>Recebido</Tag>
-  <Tag color="success" icon={<CheckCircleOutlined />}>Diagnóstico</Tag>
-  <Tag color="processing" icon={<ClockCircleOutlined />}>Execução</Tag>
-  <Tag color="default">Qualidade</Tag>
-  <Tag color="default">Entrega</Tag>
-</Space>`}
+          code={`const steps = [
+  { label: 'Recebido',    color: 'success',    icon: <CheckCircleOutlined /> },
+  { label: 'Diagnóstico', color: 'success',    icon: <CheckCircleOutlined /> },
+  { label: 'Execução',    color: 'processing', icon: <ClockCircleOutlined /> },
+  { label: 'Qualidade',   color: 'default',    icon: null },
+  { label: 'Entrega',     color: 'default',    icon: null },
+]
+
+<div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 6 }}>
+  {steps.flatMap((step, i) => {
+    const tag = <Tag key={step.label} color={step.color} icon={step.icon}>{step.label}</Tag>
+    return i === 0 ? [tag] : [
+      <Text key={'s'+i} style={{ color: '#D1D5DB', fontSize: 12 }}>›</Text>,
+      tag,
+    ]
+  })}
+</div>`}
         >
-          <Space
-            split={<Text style={{ color: G[300], fontSize: 12 }}>›</Text>}
-            size="small"
-            wrap
-          >
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 6 }}>
             {[
-              { label: 'Recebido',    color: 'success',    icon: <CheckCircleOutlined />,      done: true },
-              { label: 'Diagnóstico', color: 'success',    icon: <CheckCircleOutlined />,      done: true },
-              { label: 'Execução',    color: 'processing', icon: <ClockCircleOutlined />,      done: false },
-              { label: 'Qualidade',   color: 'default',    icon: null,                         done: false },
-              { label: 'Entrega',     color: 'default',    icon: null,                         done: false },
-            ].map(step => (
-              <Tag key={step.label} color={step.color} icon={step.icon} style={{ margin: 0 }}>
-                {step.label}
-              </Tag>
-            ))}
-          </Space>
+              { label: 'Recebido',    color: 'success',    icon: <CheckCircleOutlined /> },
+              { label: 'Diagnóstico', color: 'success',    icon: <CheckCircleOutlined /> },
+              { label: 'Execução',    color: 'processing', icon: <ClockCircleOutlined /> },
+              { label: 'Qualidade',   color: 'default',    icon: null },
+              { label: 'Entrega',     color: 'default',    icon: null },
+            ].flatMap((step, i) => {
+              const tag = (
+                <Tag key={step.label} color={step.color} icon={step.icon} style={{ margin: 0 }}>
+                  {step.label}
+                </Tag>
+              )
+              return i === 0 ? [tag] : [
+                <Text key={`sep-${i}`} style={{ color: G[300], fontSize: 12 }}>›</Text>,
+                tag,
+              ]
+            })}
+          </div>
         </DemoCard>
       </Section>
 
@@ -775,7 +815,7 @@ export default function SpaceShowcase() {
       >
         <div style={{ border: `1px solid ${G[200]}`, borderRadius: 8, overflow: 'hidden', marginBottom: 0 }}>
           <div style={{ background: G[50], padding: '24px 20px', borderBottom: `1px solid ${G[200]}` }}>
-            <Space direction="vertical" size={20} style={{ width: '100%' }}>
+            <Space orientation="vertical" size={20} style={{ width: '100%' }}>
               {[
                 { label: 'small (8px)',  size: 8 },
                 { label: 'middle (16px)', size: 16 },
@@ -813,7 +853,7 @@ export default function SpaceShowcase() {
 
       {/* ── 10. Acessibilidade ──────────────────────────────── */}
       <Section id="a11y" title="Acessibilidade">
-        <Space direction="vertical" size={8} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={8} style={{ width: '100%' }}>
           {[
             ['Elemento neutro', 'Space renderiza uma div com role implícito de apresentação. Para grupos de botões com semântica, adicione role="group" e aria-label no Space.'],
             ['Ordem de foco', 'Space preserva a ordem do DOM, logo o foco via Tab segue a ordem visual — não há surpresas para usuários de teclado.'],

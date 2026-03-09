@@ -318,7 +318,7 @@ export default function IconShowcase() {
           type="info"
           showIcon
           style={{ borderRadius: 8 }}
-          message="Clique em qualquer ícone para copiar o JSX"
+          title="Clique em qualquer ícone para copiar o JSX"
           description={
             <span>
               Navegue pelas categorias abaixo, filtre por nome e clique no ícone para copiar{' '}
@@ -391,7 +391,7 @@ export default function IconShowcase() {
 <StarTwoTone twoToneColor="#FAAD14" />
 <HeartTwoTone twoToneColor="#FF4D4F" />
 <CheckCircleTwoTone twoToneColor="#52C41A" />`}>
-          <Space direction="vertical" size={24}>
+          <Space orientation="vertical" size={24}>
             <div>
               <Text style={{ fontSize: 12, color: G[400], display: 'block', marginBottom: 12 }}>Tamanhos</Text>
               <Space align="center" size={20}>
@@ -461,7 +461,7 @@ export default function IconShowcase() {
 <ArrowUpOutlined rotate={90} />   // 90° → aponta para direita
 <ArrowUpOutlined rotate={135} />  // 135°
 <ArrowUpOutlined rotate={180} />  // 180° → aponta para baixo`}>
-          <Space direction="vertical" size={24}>
+          <Space orientation="vertical" size={24}>
             <div>
               <Text style={{ fontSize: 12, color: G[400], display: 'block', marginBottom: 12 }}>Spin</Text>
               <Space size={24} align="center">
@@ -688,7 +688,7 @@ import {
           type="warning"
           showIcon
           style={{ borderRadius: 8, marginBottom: 24 }}
-          message="Evite importação wildcard"
+          title="Evite importação wildcard"
           description={
             <span>
               <Text code>import * as AntIcons from '@ant-design/icons'</Text> importa{' '}
@@ -713,7 +713,7 @@ import {
 
       {/* ── 9. Acessibilidade ───────────────────────────────── */}
       <Section id="a11y" title="Acessibilidade">
-        <Space direction="vertical" size={8} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={8} style={{ width: '100%' }}>
           {[
             ['Ícone decorativo', 'Se o ícone apenas complementa um texto já visível, adicione aria-hidden="true" para evitar que leitores de tela o anunciem.'],
             ['Ícone funcional', 'Quando o ícone é o único elemento visível (ex: botão somente ícone), forneça aria-label descritivo no elemento pai.'],

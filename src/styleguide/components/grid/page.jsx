@@ -212,7 +212,7 @@ export default function GridShowcase() {
           type="info"
           showIcon
           style={{ borderRadius: 8 }}
-          message="Sistema de 24 colunas"
+          title="Sistema de 24 colunas"
           description={
             <span>
               A soma dos <Text code>span</Text> dentro de um <Text code>{'<Row>'}</Text> deve ser{' '}
@@ -254,7 +254,7 @@ export default function GridShowcase() {
   <Col span={6}><div>span=6</div></Col>
 </Row>`}
         >
-          <Space direction="vertical" style={{ width: '100%' }} size={8}>
+          <Space orientation="vertical" style={{ width: '100%' }} size={8}>
             <Row>
               <Col span={24}><ColBox>24</ColBox></Col>
             </Row>
@@ -356,7 +356,7 @@ export default function GridShowcase() {
   <Col span={12} offset={6}>span=12 offset=6</Col>
 </Row>`}
         >
-          <Space direction="vertical" style={{ width: '100%' }} size={8}>
+          <Space orientation="vertical" style={{ width: '100%' }} size={8}>
             <Row>
               <Col span={8}><ColBox>8</ColBox></Col>
               <Col span={8} offset={8}><ColBoxAlt alt>8, offset=8</ColBoxAlt></Col>
@@ -710,7 +710,7 @@ export default function GridShowcase() {
 
       {/* ── 9. Acessibilidade ───────────────────────────────── */}
       <Section id="a11y" title="Acessibilidade">
-        <Space direction="vertical" size={8} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={8} style={{ width: '100%' }}>
           {[
             ['Semântica HTML', 'Row e Col renderizam divs genéricas. Use elementos semânticos (<section>, <article>, <main>) internamente para estrutura de conteúdo.'],
             ['Ordem de leitura', 'A prop order altera apenas a ordem visual (CSS). Leitores de tela seguem a ordem do DOM — garanta que o HTML esteja em ordem lógica.'],

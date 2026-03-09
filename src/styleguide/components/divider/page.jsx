@@ -109,7 +109,7 @@ export default function DividerShowcase() {
           type="info"
           showIcon
           style={{ borderRadius: 8 }}
-          message="Divider é puramente visual"
+          title="Divider é puramente visual"
           description={
             <span>
               Não substitui headings ou estrutura semântica. Use-o para{' '}
@@ -255,30 +255,30 @@ export default function DividerShowcase() {
         <DemoCard code={`// Ações de tabela
 <Space>
   <Link>Editar</Link>
-  <Divider type="vertical" />
+  <Divider orientation="vertical" />
   <Link>Duplicar</Link>
-  <Divider type="vertical" />
+  <Divider orientation="vertical" />
   <Link type="danger">Excluir</Link>
 </Space>
 
 // Metadados de veículo
 <Space>
   <Text strong>BRA-1D23</Text>
-  <Divider type="vertical" />
+  <Divider orientation="vertical" />
   <Text>Honda Civic 2021</Text>
-  <Divider type="vertical" />
+  <Divider orientation="vertical" />
   <Text type="secondary">42.500 km</Text>
 </Space>`}>
-          <Space direction="vertical" size={20} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={20} style={{ width: '100%' }}>
             <div>
               <Text style={{ fontSize: 11, color: G[400], display: 'block', marginBottom: 8 }}>
                 Ações de linha de tabela
               </Text>
               <Space size={0}>
                 <Link href="#vertical">Editar</Link>
-                <Divider type="vertical" />
+                <Divider orientation="vertical" />
                 <Link href="#vertical">Duplicar</Link>
-                <Divider type="vertical" />
+                <Divider orientation="vertical" />
                 <Link href="#vertical" type="danger">Excluir</Link>
               </Space>
             </div>
@@ -289,11 +289,11 @@ export default function DividerShowcase() {
               </Text>
               <Space size={0} wrap>
                 <Text strong style={{ fontFamily: 'monospace', letterSpacing: 1 }}>BRA-1D23</Text>
-                <Divider type="vertical" />
+                <Divider orientation="vertical" />
                 <Text>Honda Civic 2021</Text>
-                <Divider type="vertical" />
+                <Divider orientation="vertical" />
                 <Space size={4}><CarOutlined style={{ color: G[400] }} /><Text type="secondary">42.500 km</Text></Space>
-                <Divider type="vertical" />
+                <Divider orientation="vertical" />
                 <Space size={4}><CalendarOutlined style={{ color: G[400] }} /><Text type="secondary">15/01/2026</Text></Space>
               </Space>
             </div>
@@ -304,11 +304,11 @@ export default function DividerShowcase() {
               </Text>
               <Space size={0} wrap>
                 <Space size={4}><UserOutlined style={{ color: G[400] }} /><Text>Carlos Mendes</Text></Space>
-                <Divider type="vertical" />
+                <Divider orientation="vertical" />
                 <Space size={4}><ToolOutlined style={{ color: G[400] }} /><Text>Troca de óleo</Text></Space>
-                <Divider type="vertical" />
+                <Divider orientation="vertical" />
                 <Space size={4}><CheckCircleOutlined style={{ color: '#52C41A' }} /><Text type="success">Concluído</Text></Space>
-                <Divider type="vertical" />
+                <Divider orientation="vertical" />
                 <Space size={4}><ClockCircleOutlined style={{ color: G[400] }} /><Text type="secondary">2h 15min</Text></Space>
               </Space>
             </div>
@@ -331,7 +331,7 @@ export default function DividerShowcase() {
 // Espessura personalizada
 <Divider style={{ borderWidth: 2, borderColor: '#3DD9A4' }}>2px</Divider>
 <Divider style={{ borderWidth: 3, borderColor: '#1677FF' }}>3px</Divider>`}>
-          <Space direction="vertical" size={0} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={0} style={{ width: '100%' }}>
             {[
               { color: PRIMARY,   text: 'Primary' },
               { color: '#52C41A', text: 'Success' },
@@ -362,7 +362,7 @@ export default function DividerShowcase() {
               <div style={{ padding: '16px 20px 0', background: '#fff' }}>
                 <Title level={5} style={{ marginTop: 0, marginBottom: 0 }}>Honda Civic 2021</Title>
                 <Divider style={{ marginTop: 12, marginBottom: 12 }} />
-                <Space direction="vertical" size={8} style={{ width: '100%', marginBottom: 12 }}>
+                <Space orientation="vertical" size={8} style={{ width: '100%', marginBottom: 12 }}>
                   {[
                     { label: 'Placa',    value: 'BRA-1D23',   mono: true },
                     { label: 'Cor',      value: 'Prata Metálico' },
@@ -375,7 +375,7 @@ export default function DividerShowcase() {
                   ))}
                 </Space>
                 <Divider dashed style={{ margin: '0 0 12px' }} />
-                <Space direction="vertical" size={8} style={{ width: '100%', marginBottom: 16 }}>
+                <Space orientation="vertical" size={8} style={{ width: '100%', marginBottom: 16 }}>
                   {[
                     { label: 'Último serviço',  value: '15/01/2026' },
                     { label: 'Próxima revisão', value: '52.500 km' },
@@ -408,7 +408,7 @@ export default function DividerShowcase() {
                     <Text style={{ color: '#52C41A', fontSize: 12 }}>Concluídos (3)</Text>
                   </Space>
                 </Divider>
-                <Space direction="vertical" size={4} style={{ width: '100%', marginBottom: 4 }}>
+                <Space orientation="vertical" size={4} style={{ width: '100%', marginBottom: 4 }}>
                   {['Troca de óleo', 'Revisão dos freios', 'Troca do filtro de ar'].map(s => (
                     <Text key={s} type="secondary" style={{ fontSize: 13 }}>• {s}</Text>
                   ))}
@@ -423,7 +423,7 @@ export default function DividerShowcase() {
                     <Text style={{ color: '#FAAD14', fontSize: 12 }}>Pendentes (2)</Text>
                   </Space>
                 </Divider>
-                <Space direction="vertical" size={4} style={{ width: '100%', marginBottom: 16 }}>
+                <Space orientation="vertical" size={4} style={{ width: '100%', marginBottom: 16 }}>
                   {['Alinhamento e balanceamento', 'Revisão da suspensão'].map(s => (
                     <Text key={s} style={{ fontSize: 13 }}>• {s}</Text>
                   ))}
@@ -463,7 +463,7 @@ export default function DividerShowcase() {
 
       {/* ── 9. Acessibilidade ───────────────────────────────── */}
       <Section id="a11y" title="Acessibilidade">
-        <Space direction="vertical" size={8} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={8} style={{ width: '100%' }}>
           {[
             ['<hr> semântico',    'O Divider horizontal renderiza um <hr> nativo — leitores de tela o anunciam como "separador", indicando mudança de tema entre blocos.'],
             ['Vertical',          'O Divider vertical usa role="separator" e aria-orientation="vertical" automaticamente.'],

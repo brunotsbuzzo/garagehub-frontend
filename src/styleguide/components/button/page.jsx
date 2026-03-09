@@ -156,7 +156,7 @@ export default function ButtonShowcase() {
           type="info"
           showIcon
           style={{ borderRadius: 8 }}
-          message="Wrapper GarageHub"
+          title="Wrapper GarageHub"
           description={
             <span>
               O componente <Text code>Button</Text> deste design system é um wrapper sobre o{' '}
@@ -298,12 +298,12 @@ export default function ButtonShowcase() {
             <Button icon={<SearchOutlined />}>Buscar</Button>
             <Button icon={<DownloadOutlined />}>Exportar</Button>
             <Button icon={<ShareAltOutlined />}>Compartilhar</Button>
-            <Divider type="vertical" />
+            <Divider orientation="vertical" />
             <Button type="primary" icon={<PlusOutlined />} />
             <Button icon={<EditOutlined />} />
             <Button icon={<HeartOutlined />} />
             <Button icon={<BellOutlined />} />
-            <Divider type="vertical" />
+            <Divider orientation="vertical" />
             <Button shape="circle" type="primary" icon={<PlusOutlined />} />
             <Button shape="circle" icon={<SearchOutlined />} />
             <Button shape="round" type="primary" icon={<SendOutlined />}>Enviar</Button>
@@ -328,7 +328,7 @@ export default function ButtonShowcase() {
                 <Text strong style={{ fontSize: 12, color: G[700] }}>Loading</Text>
               </div>
               <div style={{ padding: 16 }}>
-                <Space direction="vertical" style={{ width: '100%' }}>
+                <Space orientation="vertical" style={{ width: '100%' }}>
                   <Button type="primary" loading block>Carregando…</Button>
                   <Button loading block>Aguarde</Button>
                   <Button
@@ -357,7 +357,7 @@ export default function ButtonShowcase() {
                 <Text strong style={{ fontSize: 12, color: G[700] }}>Disabled</Text>
               </div>
               <div style={{ padding: 16 }}>
-                <Space direction="vertical" style={{ width: '100%' }}>
+                <Space orientation="vertical" style={{ width: '100%' }}>
                   <Button type="primary" disabled block>Primary</Button>
                   <Button disabled block>Default</Button>
                   <Button type="dashed" disabled block>Dashed</Button>
@@ -376,7 +376,7 @@ export default function ButtonShowcase() {
                 <Text strong style={{ fontSize: 12, color: G[700] }}>Danger</Text>
               </div>
               <div style={{ padding: 16 }}>
-                <Space direction="vertical" style={{ width: '100%' }}>
+                <Space orientation="vertical" style={{ width: '100%' }}>
                   <Button danger block>Default</Button>
                   <Button type="primary" danger block>Primary</Button>
                   <Button type="dashed" danger block>Dashed</Button>
@@ -438,7 +438,7 @@ export default function ButtonShowcase() {
 <Button intent="danger" block icon={<DeleteOutlined />}>Excluir veículo</Button>`}
         >
           <div style={{ maxWidth: 360, margin: '0 auto' }}>
-            <Space direction="vertical" style={{ width: '100%' }} size="small">
+            <Space orientation="vertical" style={{ width: '100%' }} size="small">
               <Button type="primary" block icon={<CheckOutlined />}>Confirmar agendamento</Button>
               <Button block>Cancelar</Button>
               <Button intent="danger" block icon={<DeleteOutlined />}>Excluir veículo</Button>
@@ -464,7 +464,7 @@ export default function ButtonShowcase() {
 
       {/* ── 9. Acessibilidade ───────────────────────────────── */}
       <Section id="a11y" title="Acessibilidade">
-        <Space direction="vertical" size={8} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={8} style={{ width: '100%' }}>
           {[
             ['Elemento nativo', 'Renderiza um <button> HTML — focável por Tab e ativável por Enter / Space sem nenhuma configuração extra.'],
             ['disabled', 'Adiciona o atributo disabled ao elemento HTML, impedindo foco e sinalizando ao leitor de tela corretamente.'],

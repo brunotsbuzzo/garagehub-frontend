@@ -174,7 +174,7 @@ export default function LayoutShowcase() {
           type="info"
           showIcon
           style={{ borderRadius: 8 }}
-          message="Composição por aninhamento"
+          title="Composição por aninhamento"
           description={
             <span>
               Layouts são compostos por aninhamento. Um <Text code>{'<Layout>'}</Text> pode conter
@@ -811,7 +811,7 @@ const { Header, Content, Footer } = Layout
 
       {/* ── 6. Acessibilidade ───────────────────────────────── */}
       <Section id="a11y" title="Acessibilidade">
-        <Space direction="vertical" size={8} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={8} style={{ width: '100%' }}>
           {[
             ['Landmarks HTML5', 'Substituir divs do Layout por <header>, <nav>, <main>, <aside> e <footer> melhora a navegação por leitores de tela e cumpre WCAG 1.3.1.'],
             ['Sider e nav', 'Envolva o Menu dentro do Sider em um <nav aria-label="Navegação principal"> para identificar a região corretamente.'],

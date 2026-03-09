@@ -146,7 +146,7 @@ export default function FloatButtonShowcase() {
           type="warning"
           showIcon
           style={{ borderRadius: 8 }}
-          message="Posicionamento fixo"
+          title="Posicionamento fixo"
           description={
             <span>
               O <Text code>FloatButton</Text> usa <Text code>position: fixed</Text> por padrão
@@ -572,7 +572,7 @@ import { QuestionCircleOutlined } from '@ant-design/icons'
 
       {/* ── 11. Acessibilidade ──────────────────────────────── */}
       <Section id="a11y" title="Acessibilidade">
-        <Space direction="vertical" size={8} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={8} style={{ width: '100%' }}>
           {[
             ['tooltip obrigatório', 'FloatButton com somente ícone deve sempre ter tooltip — é a única descrição acessível da ação para leitores de tela.'],
             ['aria-label', 'Se não usar tooltip, adicione aria-label diretamente: <FloatButton aria-label="Novo veículo" icon={<PlusOutlined />} />.'],
