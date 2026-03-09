@@ -103,7 +103,7 @@ const DescriptionsShowcase = () => (
     <Divider />
 
     <Section title="Tamanhos" description="default e small.">
-      <Space direction="vertical" size="large" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="large" style={{ width: '100%' }}>
         <Demo label="Default">
           <Descriptions
             bordered

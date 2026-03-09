@@ -85,7 +85,7 @@ const WatermarkShowcase = () => {
       <Divider />
 
       <Section title="Customização de fonte" description="Tamanho, cor e estilo da fonte.">
-        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+        <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Demo label="Cor da marca GarageHub">
             <Watermark
               content="GarageHub"

@@ -1,4 +1,4 @@
-import { Popover, Button, Space, Divider, Typography, Tag, Avatar, List } from 'antd'
+import { Popover, Button, Space, Divider, Typography, Tag, Avatar } from 'antd'
 import { InfoCircleOutlined, CarOutlined, UserOutlined } from '@ant-design/icons'
 
 const { Title, Text, Paragraph } = Typography
@@ -53,20 +53,18 @@ const profileContent = (
         <Text style={{ fontSize: 12, color: G[500] }}>joao@email.com</Text>
       </div>
     </div>
-    <List
-      size="small"
-      dataSource={[
+    <div>
+      {[
         { label: 'Meu Perfil' },
         { label: 'Minha Garagem' },
         { label: 'Configurações' },
         { label: 'Sair', danger: true },
-      ]}
-      renderItem={item => (
-        <List.Item style={{ padding: '6px 0', cursor: 'pointer', borderBottom: 'none' }}>
+      ].map(item => (
+        <div key={item.label} style={{ padding: '6px 0', cursor: 'pointer' }}>
           <Text style={{ fontSize: 13, color: item.danger ? '#FF4D4F' : G[700] }}>{item.label}</Text>
-        </List.Item>
-      )}
-    />
+        </div>
+      ))}
+    </div>
   </div>
 )
 

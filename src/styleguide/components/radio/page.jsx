@@ -44,7 +44,7 @@ const RadioShowcase = () => {
 
       <Section title="Básico" description="Radio individual e em grupo.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <Radio>Aceito os termos de uso</Radio>
             <Radio defaultChecked>Desejo receber notificações</Radio>
             <Radio disabled>Opção indisponível</Radio>
@@ -71,7 +71,7 @@ const RadioShowcase = () => {
       <Section title="Grupo vertical" description="Radio.Group em orientação vertical.">
         <Demo label="Tipo de serviço">
           <Radio.Group defaultValue="review">
-            <Space direction="vertical">
+            <Space orientation="vertical">
               <Radio value="oil">Troca de Óleo — R$ 89,90</Radio>
               <Radio value="review">Revisão Geral — R$ 299,90</Radio>
               <Radio value="align">Alinhamento e Balanceamento — R$ 149,90</Radio>
@@ -84,7 +84,7 @@ const RadioShowcase = () => {
       <Divider />
 
       <Section title="Botões de radio" description="Radio.Button — ideal para seleção em barra de opções.">
-        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+        <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Demo label="Padrão">
             <Radio.Group defaultValue="a">
               <Radio.Button value="a">Carro</Radio.Button>
@@ -115,7 +115,7 @@ const RadioShowcase = () => {
       <Section title="Contexto GarageHub — Seleção de plano" description="Seleção de plano de serviço com cards.">
         <Demo>
           <Radio.Group value={plan} onChange={e => setPlan(e.target.value)} style={{ width: '100%' }}>
-            <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+            <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
               {[
                 { value: 'basic', title: 'Básico', price: 'Grátis', features: 'Até 1 veículo · Agendamentos básicos' },
                 { value: 'pro', title: 'Pro', price: 'R$ 29,90/mês', features: 'Até 3 veículos · Histórico completo · Alertas' },

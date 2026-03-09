@@ -1,5 +1,6 @@
-import { List, Avatar, Space, Divider, Typography, Tag, Button, Skeleton } from 'antd'
-import { CarOutlined, ToolOutlined, CalendarOutlined, RightOutlined, EllipsisOutlined } from '@ant-design/icons'
+import { useState } from 'react'
+import { Avatar, Space, Divider, Typography, Tag, Button, Pagination } from 'antd'
+import { CarOutlined, ToolOutlined, CalendarOutlined, EllipsisOutlined } from '@ant-design/icons'
 
 const { Title, Text, Paragraph } = Typography
 
@@ -27,6 +28,23 @@ const Demo = ({ label, children }) => (
   </div>
 )
 
+const ListItem = ({ style, children, actions }) => (
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: `1px solid ${G[200]}`, ...style }}>
+    <div style={{ flex: 1 }}>{children}</div>
+    {actions && <Space size={8}>{actions}</Space>}
+  </div>
+)
+
+const ListItemMeta = ({ avatar, title, description }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+    {avatar}
+    <div>
+      <div>{title}</div>
+      {description && <Text style={{ fontSize: 12, color: G[500] }}>{description}</Text>}
+    </div>
+  </div>
+)
+
 const vehicles = [
   { id: '1', name: 'Honda Civic 2022', plate: 'ABC-1234', km: '45.230 km', status: 'Ativo', color: '#3DD9A4', bg: '#EDFCF7' },
   { id: '2', name: 'Toyota Corolla 2021', plate: 'DEF-5678', km: '32.100 km', status: 'Ativo', color: '#1677FF', bg: '#E6F4FF' },
@@ -42,118 +60,130 @@ const services = [
 
 const statusColor = { Ativo: 'success', Inativo: 'default', Concluído: 'success', 'Em andamento': 'processing', Agendado: 'warning' }
 
-const ListShowcase = () => (
-  <div>
-    <div style={{ marginBottom: 40 }}>
-      <Title level={2} style={{ margin: 0 }}>List</Title>
-      <Paragraph style={{ color: G[500], marginTop: 8, fontSize: 15 }}>
-        Exibição de listas de dados com suporte a Avatar, actions, extra e paginação.
-      </Paragraph>
-      <Space size={8}><Tag color="blue">antd v6</Tag><Tag color="default">Exibição de Dados</Tag></Space>
+const PAGE_SIZE = 3
+const pagedData = [...services, ...services]
+
+const ListShowcase = () => {
+  const [page, setPage] = useState(1)
+  const pageItems = pagedData.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+
+  return (
+    <div>
+      <div style={{ marginBottom: 40 }}>
+        <Title level={2} style={{ margin: 0 }}>List</Title>
+        <Paragraph style={{ color: G[500], marginTop: 8, fontSize: 15 }}>
+          Exibição de listas de dados com Avatar, ações e paginação. Construído com elementos nativos (antd v6 deprecou o componente List).
+        </Paragraph>
+        <Space size={8}><Tag color="blue">antd v6</Tag><Tag color="default">Exibição de Dados</Tag></Space>
+      </div>
+
+      <Section title="Lista básica" description="Itens de texto simples.">
+        <Demo>
+          <div>
+            {['Troca de Óleo', 'Revisão Geral', 'Alinhamento', 'Balanceamento', 'Troca de Pneus'].map((item, i, arr) => (
+              <div key={item} style={{ padding: '10px 16px', borderBottom: i < arr.length - 1 ? `1px solid ${G[200]}` : 'none' }}>
+                <Text>{item}</Text>
+              </div>
+            ))}
+          </div>
+        </Demo>
+      </Section>
+
+      <Divider />
+
+      <Section title="Com Avatar e meta" description="Lista de veículos com avatar e detalhes.">
+        <Demo>
+          <div>
+            {vehicles.map((v, i) => (
+              <ListItem key={v.id} style={{ padding: '12px 16px', borderBottom: i < vehicles.length - 1 ? `1px solid ${G[200]}` : 'none' }}
+                actions={[
+                  <Button key="schedule" type="text" size="small" icon={<CalendarOutlined />} />,
+                  <Button key="more" type="text" size="small" icon={<EllipsisOutlined />} />,
+                ]}
+              >
+                <ListItemMeta
+                  avatar={<Avatar size={40} icon={<CarOutlined />} style={{ background: v.bg, color: v.color }} />}
+                  title={<Space><Text strong>{v.name}</Text><Tag color={statusColor[v.status]}>{v.status}</Tag></Space>}
+                  description={`Placa: ${v.plate} · ${v.km}`}
+                />
+              </ListItem>
+            ))}
+          </div>
+        </Demo>
+      </Section>
+
+      <Divider />
+
+      <Section title="Lista de serviços" description="Histórico de serviços com ações e valor.">
+        <Demo>
+          <div>
+            {services.map((s, i) => (
+              <ListItem key={s.id} style={{ padding: '12px 16px', borderBottom: i < services.length - 1 ? `1px solid ${G[200]}` : 'none' }}
+                actions={[
+                  <Tag key="status" color={statusColor[s.status]}>{s.status}</Tag>,
+                  <Text key="value" strong style={{ color: '#0E885F', minWidth: 80, textAlign: 'right' }}>{s.value}</Text>,
+                ]}
+              >
+                <ListItemMeta
+                  avatar={<Avatar size={36} icon={<ToolOutlined />} style={{ background: '#EDFCF7', color: '#0E885F' }} />}
+                  title={<Text strong>{s.type}</Text>}
+                  description={`${s.vehicle} · ${s.date}`}
+                />
+              </ListItem>
+            ))}
+          </div>
+        </Demo>
+      </Section>
+
+      <Divider />
+
+      <Section title="Tamanho compacto" description="Lista densa com header, footer e itens pequenos.">
+        <Demo>
+          <div>
+            <div style={{ padding: '10px 16px', borderBottom: `1px solid ${G[200]}` }}>
+              <Text strong>Últimos agendamentos</Text>
+            </div>
+            {services.slice(0, 3).map((s, i) => (
+              <div key={s.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 16px', borderBottom: `1px solid ${G[200]}` }}>
+                <Text style={{ fontSize: 13 }}>{s.type} — {s.vehicle}</Text>
+                <Text style={{ fontSize: 12, color: G[500] }}>{s.date}</Text>
+              </div>
+            ))}
+            <div style={{ padding: '8px 16px', textAlign: 'center' }}>
+              <Button type="link" size="small">Ver todos</Button>
+            </div>
+          </div>
+        </Demo>
+      </Section>
+
+      <Divider />
+
+      <Section title="Com paginação" description="Lista paginada para conjuntos grandes de dados.">
+        <Demo>
+          <div>
+            {pageItems.map((s, i) => (
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 16px', borderBottom: i < pageItems.length - 1 ? `1px solid ${G[200]}` : 'none' }}>
+                <div>
+                  <Text strong style={{ display: 'block' }}>{s.type}</Text>
+                  <Text style={{ fontSize: 12, color: G[500] }}>{s.vehicle} · {s.date}</Text>
+                </div>
+                <Tag color={statusColor[s.status]}>{s.status}</Tag>
+              </div>
+            ))}
+          </div>
+          <div style={{ padding: '12px 16px', textAlign: 'center', borderTop: `1px solid ${G[200]}` }}>
+            <Pagination
+              current={page}
+              pageSize={PAGE_SIZE}
+              total={pagedData.length}
+              onChange={setPage}
+              size="small"
+            />
+          </div>
+        </Demo>
+      </Section>
     </div>
-
-    <Section title="Lista básica" description="Itens de texto simples.">
-      <Demo>
-        <List
-          dataSource={['Troca de Óleo', 'Revisão Geral', 'Alinhamento', 'Balanceamento', 'Troca de Pneus']}
-          renderItem={item => <List.Item style={{ padding: '10px 16px' }}><Text>{item}</Text></List.Item>}
-        />
-      </Demo>
-    </Section>
-
-    <Divider />
-
-    <Section title="Com Avatar e meta" description="Lista de veículos com avatar e detalhes.">
-      <Demo>
-        <List
-          dataSource={vehicles}
-          renderItem={v => (
-            <List.Item
-              style={{ padding: '12px 16px' }}
-              actions={[
-                <Button key="schedule" type="text" size="small" icon={<CalendarOutlined />} />,
-                <Button key="more" type="text" size="small" icon={<EllipsisOutlined />} />,
-              ]}
-            >
-              <List.Item.Meta
-                avatar={
-                  <Avatar size={40} icon={<CarOutlined />} style={{ background: v.bg, color: v.color }} />
-                }
-                title={<Space><Text strong>{v.name}</Text><Tag color={statusColor[v.status]}>{v.status}</Tag></Space>}
-                description={`Placa: ${v.plate} · ${v.km}`}
-              />
-            </List.Item>
-          )}
-        />
-      </Demo>
-    </Section>
-
-    <Divider />
-
-    <Section title="Lista de serviços" description="Histórico de serviços com ações e valor.">
-      <Demo>
-        <List
-          dataSource={services}
-          renderItem={s => (
-            <List.Item
-              style={{ padding: '12px 16px' }}
-              actions={[
-                <Tag key="status" color={statusColor[s.status]}>{s.status}</Tag>,
-                <Text key="value" strong style={{ color: '#0E885F', minWidth: 80, textAlign: 'right' }}>{s.value}</Text>,
-              ]}
-            >
-              <List.Item.Meta
-                avatar={<Avatar size={36} icon={<ToolOutlined />} style={{ background: '#EDFCF7', color: '#0E885F' }} />}
-                title={<Text strong>{s.type}</Text>}
-                description={`${s.vehicle} · ${s.date}`}
-              />
-            </List.Item>
-          )}
-        />
-      </Demo>
-    </Section>
-
-    <Divider />
-
-    <Section title="Tamanho compacto (small)" description="size='small' para listas densas.">
-      <Demo>
-        <List
-          size="small"
-          header={<div style={{ padding: '0 16px' }}><Text strong>Últimos agendamentos</Text></div>}
-          footer={<div style={{ padding: '0 16px', textAlign: 'center' }}><Button type="link" size="small">Ver todos</Button></div>}
-          bordered={false}
-          dataSource={services.slice(0, 3)}
-          renderItem={s => (
-            <List.Item style={{ padding: '8px 16px' }}
-              actions={[<Text key="date" style={{ fontSize: 12, color: G[500] }}>{s.date}</Text>]}
-            >
-              <Text style={{ fontSize: 13 }}>{s.type} — {s.vehicle}</Text>
-            </List.Item>
-          )}
-        />
-      </Demo>
-    </Section>
-
-    <Divider />
-
-    <Section title="Com paginação" description="Lista paginada para conjuntos grandes de dados.">
-      <Demo>
-        <List
-          pagination={{ pageSize: 3, size: 'small', align: 'center' }}
-          dataSource={[...services, ...services]}
-          renderItem={s => (
-            <List.Item style={{ padding: '10px 16px' }}>
-              <List.Item.Meta
-                title={<Text>{s.type}</Text>}
-                description={<Text style={{ fontSize: 12, color: G[500] }}>{s.vehicle} · {s.date}</Text>}
-              />
-              <Tag color={statusColor[s.status]}>{s.status}</Tag>
-            </List.Item>
-          )}
-        />
-      </Demo>
-    </Section>
-  </div>
-)
+  )
+}
 
 export default ListShowcase

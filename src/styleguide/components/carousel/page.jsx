@@ -81,7 +81,7 @@ const CarouselShowcase = () => {
       <Divider />
 
       <Section title="Dots em diferentes posições" description="top, bottom, left, right.">
-        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+        <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           {['top', 'bottom', 'left', 'right'].map(pos => (
             <Demo key={pos} label={`dotPosition="${pos}"`}>
               <Carousel dotPosition={pos} style={{ minHeight: 120 }}>

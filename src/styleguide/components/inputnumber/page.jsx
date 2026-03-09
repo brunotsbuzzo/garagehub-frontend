@@ -55,7 +55,7 @@ const InputNumberShowcase = () => {
 
       <Section title="Com prefixo/sufixo" description="Adicione unidades ou símbolos.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <InputNumber
               prefix="R$"
               defaultValue={299.90}
@@ -63,23 +63,27 @@ const InputNumberShowcase = () => {
               style={{ width: 160 }}
               step={10}
             />
-            <InputNumber
-              addonAfter="km"
-              value={km}
-              onChange={setKm}
-              step={1000}
-              formatter={v => v?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-              parser={v => v?.replace(/\./g, '')}
-              style={{ width: 200 }}
-            />
-            <InputNumber
-              addonBefore="+"
-              addonAfter="%"
-              defaultValue={15}
-              min={0}
-              max={100}
-              style={{ width: 160 }}
-            />
+            <Space.Compact>
+              <InputNumber
+                suffix="km"
+                value={km}
+                onChange={setKm}
+                step={1000}
+                formatter={v => v?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                parser={v => v?.replace(/\./g, '')}
+                style={{ width: 200 }}
+              />
+            </Space.Compact>
+            <Space.Compact>
+              <InputNumber
+                prefix="+"
+                suffix="%"
+                defaultValue={15}
+                min={0}
+                max={100}
+                style={{ width: 160 }}
+              />
+            </Space.Compact>
           </Space>
         </Demo>
       </Section>
@@ -88,7 +92,7 @@ const InputNumberShowcase = () => {
 
       <Section title="Tamanhos" description="Small, Middle (padrão) e Large.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <InputNumber size="small" defaultValue={3} placeholder="Small" />
             <InputNumber size="middle" defaultValue={3} placeholder="Middle" />
             <InputNumber size="large" defaultValue={3} placeholder="Large" />
@@ -100,7 +104,7 @@ const InputNumberShowcase = () => {
 
       <Section title="Passo personalizado" description="step define o incremento de cada clique.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <div>
               <Text style={{ fontSize: 12, color: G[400] }}>Passo 0,1 — Precisão 1</Text>
               <br />
@@ -112,7 +116,7 @@ const InputNumberShowcase = () => {
               <InputNumber
                 defaultValue={45000}
                 step={1000}
-                addonAfter="km"
+                suffix="km"
                 style={{ width: 200 }}
               />
             </div>
@@ -135,7 +139,7 @@ const InputNumberShowcase = () => {
 
       <Section title="Controles personalizados" description="Mude a posição dos controles ou desative-os.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <InputNumber defaultValue={3} controls={false} style={{ width: 120 }} placeholder="Sem controles" />
             <InputNumber defaultValue={3} style={{ width: 120 }} />
           </Space>

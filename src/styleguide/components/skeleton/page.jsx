@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Skeleton, Switch, Space, Divider, Typography, Tag, List, Avatar } from 'antd'
+import { Skeleton, Switch, Space, Divider, Typography, Tag, Avatar } from 'antd'
 
 const { Title, Text, Paragraph } = Typography
 
@@ -63,7 +63,7 @@ const SkeletonShowcase = () => {
       <Divider />
 
       <Section title="Com avatar" description="Skeleton com avatar circular ou quadrado.">
-        <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+        <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
           <Demo label="Avatar circular">
             <Skeleton avatar active />
           </Demo>
@@ -76,7 +76,7 @@ const SkeletonShowcase = () => {
       <Divider />
 
       <Section title="Apenas título ou parágrafo" description="Controle de rows e width.">
-        <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+        <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
           <Demo label="Somente título">
             <Skeleton title paragraph={false} active />
           </Demo>
@@ -90,7 +90,7 @@ const SkeletonShowcase = () => {
 
       <Section title="Elementos individuais" description="Skeleton.Input, Button, Image e Avatar.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <Space wrap>
               <Skeleton.Avatar active />
               <Skeleton.Avatar active shape="square" />
@@ -117,7 +117,7 @@ const SkeletonShowcase = () => {
 
       <Section title="Toggle loading" description="Alterne entre skeleton e conteúdo real.">
         <Demo>
-          <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+          <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
             <Space align="center">
               <Switch
                 checked={loading}
@@ -138,14 +138,13 @@ const SkeletonShowcase = () => {
 
       <Section title="Lista com skeleton" description="Skeleton em lista de serviços carregando.">
         <Demo>
-          <List
-            dataSource={Array(3).fill(null)}
-            renderItem={(_, i) => (
-              <List.Item key={i} style={{ padding: '12px 0' }}>
+          <div>
+            {[0, 1, 2].map(i => (
+              <div key={i} style={{ padding: '12px 0', borderBottom: i < 2 ? `1px solid ${G[200]}` : 'none' }}>
                 <Skeleton avatar active paragraph={{ rows: 1 }} />
-              </List.Item>
-            )}
-          />
+              </div>
+            ))}
+          </div>
         </Demo>
       </Section>
     </div>

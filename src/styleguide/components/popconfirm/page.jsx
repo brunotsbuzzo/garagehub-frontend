@@ -135,7 +135,7 @@ const PopconfirmShowcase = () => (
 
     <Section title="Contexto GarageHub — Ações destrutivas" description="Confirmações em lista de veículos.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%', maxWidth: 480 }} size="small">
+        <Space orientation="vertical" style={{ width: '100%', maxWidth: 480 }} size="small">
           {['Honda Civic 2022', 'Toyota Corolla 2021', 'Ford Ka 2020'].map(car => (
             <div key={car} style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',

@@ -75,7 +75,7 @@ const CardShowcase = () => (
                 <DeleteOutlined key="delete" />,
               ]}
             >
-              <Space direction="vertical" size="small">
+              <Space orientation="vertical" size="small">
                 <Text style={{ color: G[500] }}>Placa: <Text strong>ABC-1234</Text></Text>
                 <Text style={{ color: G[500] }}>Km: <Text strong>45.230 km</Text></Text>
                 <Text style={{ color: G[500] }}>Próxima revisão: <Text strong style={{ color: '#FAAD14' }}>em 2.770 km</Text></Text>
@@ -92,7 +92,7 @@ const CardShowcase = () => (
                 <DeleteOutlined key="delete" />,
               ]}
             >
-              <Space direction="vertical" size="small">
+              <Space orientation="vertical" size="small">
                 <Text style={{ color: G[500] }}>Placa: <Text strong>DEF-5678</Text></Text>
                 <Text style={{ color: G[500] }}>Km: <Text strong>32.100 km</Text></Text>
                 <Text style={{ color: G[500] }}>Revisão: <Text strong style={{ color: '#52C41A' }}>em dia</Text></Text>
@@ -139,7 +139,7 @@ const CardShowcase = () => (
           ].map(s => (
             <Col xs={24} sm={8} key={s.title}>
               <Card size="small" title={s.title} extra={<Tag color="processing">Em andamento</Tag>}>
-                <Space direction="vertical" style={{ width: '100%' }} size="small">
+                <Space orientation="vertical" style={{ width: '100%' }} size="small">
                   <Text style={{ fontSize: 12, color: G[500] }}>{s.vehicle}</Text>
                   <Progress percent={s.percent} strokeColor={s.color} size="small" />
                   <Text style={{ fontSize: 12, color: G[500] }}>Previsão: <Text style={{ color: G[700] }}>{s.eta}</Text></Text>

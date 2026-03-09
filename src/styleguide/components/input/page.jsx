@@ -54,7 +54,7 @@ const InputShowcase = () => (
 
     <Section title="Básico" description="Input de texto simples.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <Input placeholder="Nome completo" style={{ maxWidth: 360 }} />
           <Input placeholder="Placa do veículo (ex: ABC-1234)" style={{ maxWidth: 360 }} />
           <Input placeholder="Quilometragem atual" style={{ maxWidth: 360 }} />
@@ -66,7 +66,7 @@ const InputShowcase = () => (
 
     <Section title="Tamanhos" description="Small, Middle (padrão) e Large.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <Input size="small" placeholder="Small — 24px" style={{ maxWidth: 300 }} />
           <Input size="middle" placeholder="Middle — 32px (padrão)" style={{ maxWidth: 300 }} />
           <Input size="large" placeholder="Large — 40px" style={{ maxWidth: 300 }} />
@@ -78,7 +78,7 @@ const InputShowcase = () => (
 
     <Section title="Com prefixo e sufixo" description="Adicione ícones ou texto antes/depois do input.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <Input prefix={<UserOutlined style={{ color: G[400] }} />} placeholder="Usuário" style={{ maxWidth: 320 }} />
           <Input prefix={<MailOutlined style={{ color: G[400] }} />} placeholder="E-mail" style={{ maxWidth: 320 }} />
           <Input prefix={<PhoneOutlined style={{ color: G[400] }} />} placeholder="Telefone" style={{ maxWidth: 320 }} />
@@ -89,13 +89,26 @@ const InputShowcase = () => (
 
     <Divider />
 
-    <Section title="Antes e depois (adornments)" description="Elementos adicionais externos ao campo.">
+    <Section title="Antes e depois (adornments)" description="Use Space.Compact para combinar Input com outros elementos.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
-          <Input addonBefore="https://" placeholder="oficina.com.br" style={{ maxWidth: 380 }} />
-          <Input addonBefore="+55" placeholder="(11) 99999-9999" style={{ maxWidth: 320 }} />
-          <Input addonAfter="km/h" placeholder="Velocidade máxima" style={{ maxWidth: 300 }} />
-          <Input addonBefore="R$" addonAfter=",00" placeholder="Valor do serviço" style={{ maxWidth: 280 }} />
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
+          <Space.Compact style={{ maxWidth: 380 }}>
+            <span className="ant-input-group-addon" style={{ display:'flex', alignItems:'center', padding:'0 11px', background:G[100], border:`1px solid ${G[200]}`, borderRadius:'6px 0 0 6px', fontSize:14 }}>https://</span>
+            <Input placeholder="oficina.com.br" />
+          </Space.Compact>
+          <Space.Compact style={{ maxWidth: 320 }}>
+            <span className="ant-input-group-addon" style={{ display:'flex', alignItems:'center', padding:'0 11px', background:G[100], border:`1px solid ${G[200]}`, borderRadius:'6px 0 0 6px', fontSize:14 }}>+55</span>
+            <Input placeholder="(11) 99999-9999" />
+          </Space.Compact>
+          <Space.Compact style={{ maxWidth: 300 }}>
+            <Input placeholder="Velocidade máxima" />
+            <span className="ant-input-group-addon" style={{ display:'flex', alignItems:'center', padding:'0 11px', background:G[100], border:`1px solid ${G[200]}`, borderRadius:'0 6px 6px 0', fontSize:14 }}>km/h</span>
+          </Space.Compact>
+          <Space.Compact style={{ maxWidth: 280 }}>
+            <span className="ant-input-group-addon" style={{ display:'flex', alignItems:'center', padding:'0 11px', background:G[100], border:`1px solid ${G[200]}`, borderRadius:'6px 0 0 6px', fontSize:14 }}>R$</span>
+            <Input placeholder="Valor do serviço" />
+            <span className="ant-input-group-addon" style={{ display:'flex', alignItems:'center', padding:'0 11px', background:G[100], border:`1px solid ${G[200]}`, borderRadius:'0 6px 6px 0', fontSize:14 }}>,00</span>
+          </Space.Compact>
         </Space>
       </Demo>
     </Section>
@@ -104,7 +117,7 @@ const InputShowcase = () => (
 
     <Section title="Password" description="Campo com toggle de visibilidade.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <Password
             prefix={<LockOutlined style={{ color: G[400] }} />}
             placeholder="Senha"
@@ -124,7 +137,7 @@ const InputShowcase = () => (
 
     <Section title="Search" description="Input com botão de busca integrado.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <Search placeholder="Buscar veículo..." style={{ maxWidth: 380 }} />
           <Search
             placeholder="Buscar oficina..."
@@ -146,7 +159,7 @@ const InputShowcase = () => (
 
     <Section title="TextArea" description="Área de texto para entrada de conteúdo longo.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <TextArea
             placeholder="Descreva o problema do seu veículo..."
             rows={4}
@@ -172,7 +185,7 @@ const InputShowcase = () => (
 
     <Section title="Estados" description="Padrão, foco, erro, aviso e desabilitado.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <Input placeholder="Padrão" style={{ maxWidth: 300 }} />
           <Input status="error" placeholder="Placa inválida" style={{ maxWidth: 300 }} />
           <Input status="warning" placeholder="Campo incompleto" style={{ maxWidth: 300 }} />
@@ -186,7 +199,7 @@ const InputShowcase = () => (
 
     <Section title="allowClear" description="Botão para limpar o conteúdo do campo.">
       <Demo>
-        <Space direction="vertical" size="middle">
+        <Space orientation="vertical" size="middle">
           <Input allowClear placeholder="Digite e limpe o campo" style={{ maxWidth: 300 }} />
           <Input
             allowClear

@@ -59,7 +59,7 @@ const TimePickerShowcase = () => (
     <Divider />
 
     <Section title="Passo customizado (step)" description="Define intervalos de minutos disponíveis.">
-      <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
         <Demo label="Intervalos de 15 minutos">
           <TimePicker minuteStep={15} format="HH:mm" placeholder="Escolha o horário" />
         </Demo>
@@ -86,7 +86,7 @@ const TimePickerShowcase = () => (
 
     <Section title="Tamanhos" description="Small, Middle e Large.">
       <Demo>
-        <Space direction="vertical" size="middle">
+        <Space orientation="vertical" size="middle">
           <TimePicker size="small" placeholder="Small" format="HH:mm" />
           <TimePicker size="middle" placeholder="Middle" format="HH:mm" />
           <TimePicker size="large" placeholder="Large" format="HH:mm" />
@@ -98,7 +98,7 @@ const TimePickerShowcase = () => (
 
     <Section title="Contexto GarageHub — Horários de agendamento" description="Grade de horários disponíveis por período.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%', maxWidth: 420 }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%', maxWidth: 420 }} size="middle">
           <Text strong>Horário de entrada do veículo</Text>
           <TimePicker
             minuteStep={30}

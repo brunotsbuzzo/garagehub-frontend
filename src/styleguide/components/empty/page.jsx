@@ -46,7 +46,7 @@ const EmptyShowcase = () => (
     <Divider />
 
     <Section title="Sem imagem" description="image={null} ou Empty.PRESENTED_IMAGE_SIMPLE.">
-      <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
         <Demo label="PRESENTED_IMAGE_SIMPLE">
           <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
         </Demo>
@@ -77,7 +77,7 @@ const EmptyShowcase = () => (
     <Divider />
 
     <Section title="Imagem customizada" description="Substitua a imagem padrão por ícone da marca.">
-      <Space direction="vertical" size="large" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="large" style={{ width: '100%' }}>
         <Demo label="Sem veículos">
           <Empty
             image={

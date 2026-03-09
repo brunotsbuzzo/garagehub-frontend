@@ -155,7 +155,7 @@ const TagShowcase = () => {
 
       <Section title="Contexto GarageHub — Status de serviço" description="Tags de status em lista de serviços.">
         <Demo>
-          <Space direction="vertical" style={{ width: '100%' }} size="small">
+          <Space orientation="vertical" style={{ width: '100%' }} size="small">
             {[
               { service: 'Revisão Geral — Honda Civic 2022', status: 'Concluído', color: 'success' },
               { service: 'Troca de Óleo — Toyota Corolla', status: 'Em andamento', color: 'processing', icon: <SyncOutlined spin /> },

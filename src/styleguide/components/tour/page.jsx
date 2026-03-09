@@ -80,7 +80,7 @@ const TourShowcase = () => {
 
       <Section title="Tour básico" description="Guia com 3 etapas destacando elementos da tela.">
         <Demo>
-          <Space direction="vertical" style={{ width: '100%' }} size="large">
+          <Space orientation="vertical" style={{ width: '100%' }} size="large">
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
               <Button ref={ref1} icon={<CarOutlined />} type="primary">
                 Meus Veículos
@@ -127,7 +127,7 @@ const TourShowcase = () => {
 
       <Section title="Sem máscara (primary)" description="type='primary' usa a cor primária no tour sem máscara.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <Paragraph style={{ color: G[500], fontSize: 13 }}>
               Use <Text code>mask={'{false}'}</Text> para tour não bloqueante — o usuário pode interagir com a página durante o tour.
             </Paragraph>
@@ -149,7 +149,7 @@ const TourShowcase = () => {
 
       <Section title="Casos de uso" description="Quando usar Tour no GarageHub.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             {[
               { title: 'Onboarding inicial', desc: 'Guia o novo usuário pelas funcionalidades principais na primeira visita.' },
               { title: 'Nova funcionalidade', desc: 'Destaca recursos recém-lançados para usuários existentes.' },

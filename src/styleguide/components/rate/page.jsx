@@ -53,7 +53,7 @@ const RateShowcase = () => {
 
       <Section title="Básico" description="Rate simples controlado.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <Rate defaultValue={3} />
             <Rate value={4.5} disabled />
             <Rate defaultValue={0} />
@@ -65,7 +65,7 @@ const RateShowcase = () => {
 
       <Section title="Meia estrela" description="Permite seleção de 0,5 em 0,5.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <Rate allowHalf defaultValue={2.5} />
             <Rate allowHalf value={4.5} disabled />
           </Space>
@@ -96,7 +96,7 @@ const RateShowcase = () => {
 
       <Section title="Ícones personalizados" description="Substitua as estrelas por outros ícones.">
         <Demo>
-          <Space direction="vertical" size="large">
+          <Space orientation="vertical" size="large">
             <div>
               <Text style={{ fontSize: 12, color: G[400], display: 'block', marginBottom: 8 }}>Corações</Text>
               <Rate character={<HeartOutlined />} allowHalf defaultValue={3.5} />
@@ -113,7 +113,7 @@ const RateShowcase = () => {
 
       <Section title="Somente leitura" description="Rate desabilitado para exibição de avaliações.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             {[5, 4.5, 4, 3.5, 3].map(v => (
               <Space key={v} align="center">
                 <Rate allowHalf disabled value={v} style={{ fontSize: 14 }} />
@@ -128,7 +128,7 @@ const RateShowcase = () => {
 
       <Section title="Contexto GarageHub — Lista de oficinas" description="Avaliações reais de oficinas no app.">
         <Demo>
-          <Space direction="vertical" style={{ width: '100%' }} size="middle">
+          <Space orientation="vertical" style={{ width: '100%' }} size="middle">
             {workshops.map(w => (
               <div key={w.name} style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',

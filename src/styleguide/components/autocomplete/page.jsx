@@ -190,7 +190,7 @@ const AutoCompleteShowcase = () => {
       <Divider />
 
       <Section title="Estados" description="Variações de estado: padrão, desabilitado e com status de erro.">
-        <Space direction="vertical" size="middle">
+        <Space orientation="vertical" size="middle">
           <Demo label="Padrão">
             <AutoComplete
               style={{ width: 280 }}

@@ -142,7 +142,7 @@ const TooltipShowcase = () => (
 
     <Section title="Contexto GarageHub — Labels de ajuda" description="Tooltips em campos de formulário.">
       <Demo>
-        <Space direction="vertical" size="middle">
+        <Space orientation="vertical" size="middle">
           {[
             {
               label: 'Quilometragem atual',

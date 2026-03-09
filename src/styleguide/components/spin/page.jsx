@@ -60,7 +60,7 @@ const SpinShowcase = () => (
 
     <Section title="Sobreposto a conteúdo" description="Spin wrapping um elemento — bloqueia a interação.">
       <Demo>
-        <Spin spinning tip="Carregando veículos...">
+        <Spin spinning description="Carregando veículos...">
           <div style={{
             padding: 24, background: '#fff', border: `1px solid ${G[200]}`,
             borderRadius: 8, minHeight: 100,
@@ -76,10 +76,10 @@ const SpinShowcase = () => (
     <Section title="Com texto de dica" description="tip adiciona mensagem abaixo do spinner.">
       <Demo>
         <Space size="large">
-          <Spin tip="Buscando oficinas..." size="large">
+          <Spin description="Buscando oficinas..." size="large">
             <div style={{ width: 160, height: 80 }} />
           </Spin>
-          <Spin tip="Salvando..." size="default">
+          <Spin description="Salvando..." size="default">
             <div style={{ width: 120, height: 60 }} />
           </Spin>
         </Space>
@@ -110,7 +110,7 @@ const SpinShowcase = () => (
         <Alert
           type="info"
           showIcon
-          message="Spin com delay={500}"
+          title="Spin com delay={500}"
           description="O spinner só aparece se o carregamento demorar mais de 500ms, evitando flashes indesejados em operações rápidas."
         />
       </Demo>
@@ -120,8 +120,8 @@ const SpinShowcase = () => (
 
     <Section title="Contexto GarageHub — Loading states" description="Spinners em cenários reais do app.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="large">
-          <Spin tip="Buscando oficinas próximas..." spinning size="default">
+        <Space orientation="vertical" style={{ width: '100%' }} size="large">
+          <Spin description="Buscando oficinas próximas..." spinning size="default">
             <div style={{
               padding: 20, background: '#fff', border: `1px solid ${G[200]}`,
               borderRadius: 8, display: 'flex', alignItems: 'center', gap: 12,
@@ -130,7 +130,7 @@ const SpinShowcase = () => (
             </div>
           </Spin>
 
-          <Spin tip="Processando pagamento..." indicator={<LoadingOutlined style={{ fontSize: 20, color: '#3DD9A4' }} spin />}>
+          <Spin description="Processando pagamento..." indicator={<LoadingOutlined style={{ fontSize: 20, color: '#3DD9A4' }} spin />}>
             <div style={{
               padding: 20, background: '#EDFCF7', border: `1px solid #3DD9A4`,
               borderRadius: 8,

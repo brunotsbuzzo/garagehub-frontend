@@ -56,7 +56,7 @@ const serviceItems = [
     label: <Space><ToolOutlined style={{ color: '#3DD9A4' }} />Motor</Space>,
     extra: <Tag color="green">6 opções</Tag>,
     children: (
-      <Space direction="vertical" style={{ width: '100%' }} size="small">
+      <Space orientation="vertical" style={{ width: '100%' }} size="small">
         {['Troca de Óleo', 'Filtro de Ar', 'Velas de Ignição', 'Correia Dentada', 'Radiador', 'Bomba d\'água'].map(s => (
           <div key={s} style={{ padding: '8px 0', borderBottom: `1px solid ${G[100]}` }}>
             <Text>{s}</Text>
@@ -70,7 +70,7 @@ const serviceItems = [
     label: <Space><ToolOutlined style={{ color: '#1677FF' }} />Freios</Space>,
     extra: <Tag color="blue">4 opções</Tag>,
     children: (
-      <Space direction="vertical" style={{ width: '100%' }} size="small">
+      <Space orientation="vertical" style={{ width: '100%' }} size="small">
         {['Pastilhas de Freio', 'Discos de Freio', 'Fluido de Freio', 'Tambor de Freio'].map(s => (
           <div key={s} style={{ padding: '8px 0', borderBottom: `1px solid ${G[100]}` }}>
             <Text>{s}</Text>
@@ -84,7 +84,7 @@ const serviceItems = [
     label: <Space><ToolOutlined style={{ color: '#FAAD14' }} />Elétrica</Space>,
     extra: <Tag color="warning">3 opções</Tag>,
     children: (
-      <Space direction="vertical" style={{ width: '100%' }} size="small">
+      <Space orientation="vertical" style={{ width: '100%' }} size="small">
         {['Bateria', 'Alternador', 'Injeção Eletrônica'].map(s => (
           <div key={s} style={{ padding: '8px 0', borderBottom: `1px solid ${G[100]}` }}>
             <Text>{s}</Text>
@@ -129,7 +129,7 @@ const CollapseShowcase = () => (
     <Divider />
 
     <Section title="Variantes visuais" description="ghost, borderless e sem ícone de seta.">
-      <Space direction="vertical" size="large" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="large" style={{ width: '100%' }}>
         <Demo label="Ghost (sem fundo)">
           <Collapse
             ghost

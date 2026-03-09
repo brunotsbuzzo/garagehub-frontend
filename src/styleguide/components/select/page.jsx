@@ -78,7 +78,7 @@ const SelectShowcase = () => (
 
     <Section title="Tamanhos" description="Small, Middle (padrão) e Large.">
       <Demo>
-        <Space direction="vertical" size="middle">
+        <Space orientation="vertical" size="middle">
           <Select size="small" defaultValue="civic" style={{ width: 220 }}
             options={[{ value: 'civic', label: 'Honda Civic 2022' }]} />
           <Select size="middle" defaultValue="civic" style={{ width: 220 }}

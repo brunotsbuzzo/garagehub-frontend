@@ -96,7 +96,7 @@ const ResultShowcase = () => (
     <Divider />
 
     <Section title="404 e 403" description="Páginas de erro HTTP.">
-      <Space direction="vertical" style={{ width: '100%' }} size="large">
+      <Space orientation="vertical" style={{ width: '100%' }} size="large">
         <Demo label="Página não encontrada (404)">
           <Result
             status="404"

@@ -82,7 +82,7 @@ const BadgeShowcase = () => {
 
       <Section title="Status" description="Badge de status (standalone ou com texto).">
         <Demo>
-          <Space direction="vertical" size="small">
+          <Space orientation="vertical" size="small">
             <Badge status="success" text="Serviço concluído" />
             <Badge status="processing" text="Em andamento" />
             <Badge status="warning" text="Aguardando aprovação" />
@@ -142,7 +142,7 @@ const BadgeShowcase = () => {
 
       <Section title="Animação (show/hide)" description="Transição ao mostrar/ocultar o badge.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <Space align="center" size="middle">
               <Switch checked={show} onChange={setShow} checkedChildren="Mostrar" unCheckedChildren="Ocultar" />
               <Badge count={show ? 7 : 0} showZero={false}>

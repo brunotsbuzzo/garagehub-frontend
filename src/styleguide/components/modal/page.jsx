@@ -66,7 +66,7 @@ const ModalShowcase = () => {
             okText="Confirmar"
             cancelText="Cancelar"
           >
-            <Space direction="vertical" style={{ width: '100%' }} size="small">
+            <Space orientation="vertical" style={{ width: '100%' }} size="small">
               {[
                 ['Modelo', 'Honda Civic 2022'],
                 ['Placa', 'ABC-1234'],

@@ -142,7 +142,7 @@ const BreadcrumbShowcase = () => (
     <Divider />
 
     <Section title="Contexto GarageHub" description="Exemplos de uso real na aplicação.">
-      <Space direction="vertical" size="large" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="large" style={{ width: '100%' }}>
         <Demo label="Página de agendamento">
           <Breadcrumb
             items={[

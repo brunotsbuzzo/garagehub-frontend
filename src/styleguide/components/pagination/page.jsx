@@ -120,7 +120,7 @@ const PaginationShowcase = () => {
       <Divider />
 
       <Section title="Tamanhos" description="Paginação em tamanho pequeno e padrão.">
-        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+        <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Demo label="Padrão">
             <Pagination defaultCurrent={3} total={100} />
           </Demo>
@@ -142,7 +142,7 @@ const PaginationShowcase = () => {
 
       <Section title="Contexto GarageHub" description="Paginação integrada em lista de veículos.">
         <Demo>
-          <Space direction="vertical" style={{ width: '100%' }} size="middle">
+          <Space orientation="vertical" style={{ width: '100%' }} size="middle">
             {fakeVehicles.map(v => (
               <div key={v.id} style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',

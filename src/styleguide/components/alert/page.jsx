@@ -39,11 +39,11 @@ const AlertShowcase = () => (
 
     <Section title="Tipos" description="success, info, warning e error.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
-          <Alert type="success" message="Agendamento confirmado com sucesso!" />
-          <Alert type="info" message="Seu veículo está em manutenção preventiva agendada." />
-          <Alert type="warning" message="A revisão do Honda Civic está vencendo em 7 dias." />
-          <Alert type="error" message="Falha ao processar o pagamento. Tente novamente." />
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
+          <Alert type="success" title="Agendamento confirmado com sucesso!" />
+          <Alert type="info" title="Seu veículo está em manutenção preventiva agendada." />
+          <Alert type="warning" title="A revisão do Honda Civic está vencendo em 7 dias." />
+          <Alert type="error" title="Falha ao processar o pagamento. Tente novamente." />
         </Space>
       </Demo>
     </Section>
@@ -52,11 +52,11 @@ const AlertShowcase = () => (
 
     <Section title="Com ícone" description="showIcon exibe o ícone correspondente ao tipo.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
-          <Alert type="success" showIcon message="Serviço concluído com êxito" />
-          <Alert type="info" showIcon message="3 novas oficinas disponíveis na sua região" />
-          <Alert type="warning" showIcon message="Manutenção preventiva necessária em breve" />
-          <Alert type="error" showIcon message="Documento CRLV expirado — regularize o veículo" />
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
+          <Alert type="success" showIcon title="Serviço concluído com êxito" />
+          <Alert type="info" showIcon title="3 novas oficinas disponíveis na sua região" />
+          <Alert type="warning" showIcon title="Manutenção preventiva necessária em breve" />
+          <Alert type="error" showIcon title="Documento CRLV expirado — regularize o veículo" />
         </Space>
       </Demo>
     </Section>
@@ -65,23 +65,23 @@ const AlertShowcase = () => (
 
     <Section title="Com descrição" description="Texto adicional abaixo do título.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <Alert
             type="success"
             showIcon
-            message="Revisão Geral Concluída"
+            title="Revisão Geral Concluída"
             description="Seu Honda Civic 2022 passou pela revisão completa. Próxima revisão recomendada em 12 meses ou 15.000 km."
           />
           <Alert
             type="warning"
             showIcon
-            message="IPVA com vencimento próximo"
+            title="IPVA com vencimento próximo"
             description="O IPVA do seu Toyota Corolla 2021 vence em 15 dias. Evite multas e regularize o documento."
           />
           <Alert
             type="error"
             showIcon
-            message="Falha no agendamento"
+            title="Falha no agendamento"
             description="Não foi possível confirmar o agendamento com a Oficina Silva. A agenda está indisponível neste horário. Selecione outro horário."
           />
         </Space>
@@ -92,18 +92,18 @@ const AlertShowcase = () => (
 
     <Section title="Fechável (closable)" description="O usuário pode fechar o alerta.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <Alert
             type="info"
             showIcon
             closable
-            message="GarageHub agora suporta agendamento de serviços de reboque."
+            title="GarageHub agora suporta agendamento de serviços de reboque."
           />
           <Alert
             type="warning"
             showIcon
             closable
-            message="Revisão pendente"
+            title="Revisão pendente"
             description="Você tem 2 veículos com revisão pendente. Clique para agendar."
             action={<Button size="small" type="link">Agendar agora</Button>}
           />
@@ -115,11 +115,11 @@ const AlertShowcase = () => (
 
     <Section title="Com ação" description="Botão de ação integrado no alert.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <Alert
             type="info"
             showIcon
-            message="Atualização disponível"
+            title="Atualização disponível"
             description="Uma nova versão do GarageHub está disponível com melhorias de performance."
             action={
               <Space>
@@ -131,7 +131,7 @@ const AlertShowcase = () => (
           <Alert
             type="warning"
             showIcon
-            message="Perfil incompleto"
+            title="Perfil incompleto"
             action={<Button size="small">Completar perfil</Button>}
           />
         </Space>
@@ -146,7 +146,7 @@ const AlertShowcase = () => (
           banner
           type="warning"
           showIcon
-          message="Manutenção programada: O sistema estará indisponível de 02:00 às 04:00 do dia 15/03."
+          title="Manutenção programada: O sistema estará indisponível de 02:00 às 04:00 do dia 15/03."
         />
       </Demo>
     </Section>
@@ -155,12 +155,12 @@ const AlertShowcase = () => (
 
     <Section title="Contexto GarageHub — Painel de alertas" description="Múltiplos alertas do sistema em um painel.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           <Alert
             type="success"
             showIcon
             closable
-            message="Revisão Geral concluída — Honda Civic 2022"
+            title="Revisão Geral concluída — Honda Civic 2022"
             description="A Oficina Silva finalizou o serviço. Seu veículo está pronto para retirada."
             action={<Button size="small" type="primary" ghost>Ver laudo</Button>}
           />
@@ -168,14 +168,14 @@ const AlertShowcase = () => (
             type="warning"
             showIcon
             closable
-            message="Troca de óleo vencida há 2.000 km"
+            title="Troca de óleo vencida há 2.000 km"
             description="O intervalo de troca de óleo do Ford Ka foi ultrapassado. Agende o quanto antes."
             action={<Button size="small">Agendar</Button>}
           />
           <Alert
             type="error"
             showIcon
-            message="Documento vencido"
+            title="Documento vencido"
             description="O licenciamento do Toyota Corolla 2021 está vencido desde 01/01/2026."
           />
         </Space>

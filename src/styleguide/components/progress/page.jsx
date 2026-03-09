@@ -38,7 +38,7 @@ const ProgressShowcase = () => (
 
     <Section title="Barra linear" description="Progress bar com diferentes porcentagens e status.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%', maxWidth: 480 }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%', maxWidth: 480 }} size="middle">
           <Progress percent={30} />
           <Progress percent={50} status="active" />
           <Progress percent={70} strokeColor="#3DD9A4" />
@@ -52,7 +52,7 @@ const ProgressShowcase = () => (
 
     <Section title="Cores personalizadas" description="Customize strokeColor para cores da marca.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%', maxWidth: 480 }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%', maxWidth: 480 }} size="middle">
           <div>
             <Text style={{ fontSize: 12, color: G[500], display: 'block', marginBottom: 6 }}>GarageHub Primary</Text>
             <Progress percent={75} strokeColor="#3DD9A4" />
@@ -107,7 +107,7 @@ const ProgressShowcase = () => (
 
     <Section title="Tamanhos" description="Tamanho pequeno e padrão.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%', maxWidth: 480 }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%', maxWidth: 480 }} size="middle">
           <Progress size="small" percent={70} strokeColor="#3DD9A4" />
           <Progress percent={70} strokeColor="#3DD9A4" />
         </Space>

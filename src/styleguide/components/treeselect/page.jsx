@@ -120,7 +120,7 @@ const TreeSelectShowcase = () => (
     <Divider />
 
     <Section title="Estratégia de exibição" description="SHOW_PARENT, SHOW_CHILD ou SHOW_ALL.">
-      <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
         <Demo label="SHOW_PARENT — exibe o pai quando todos os filhos estão selecionados">
           <TreeSelect
             treeData={serviceTree}

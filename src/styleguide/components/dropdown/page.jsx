@@ -179,7 +179,7 @@ const DropdownShowcase = () => {
       <Section title="Posicionamento" description="Controle a posição do menu popup.">
         <Demo>
           <Space wrap>
-            {['bottomLeft', 'bottomCenter', 'bottomRight', 'topLeft', 'topCenter', 'topRight'].map(placement => (
+            {['bottomLeft', 'bottom', 'bottomRight', 'topLeft', 'top', 'topRight'].map(placement => (
               <Dropdown key={placement} menu={{ items: vehicleMenu.items }} placement={placement}>
                 <Button size="small">{placement}</Button>
               </Dropdown>

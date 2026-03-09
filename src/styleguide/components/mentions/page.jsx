@@ -84,7 +84,7 @@ const MentionsShowcase = () => (
     <Divider />
 
     <Section title="Posicionamento do popup" description="Controle onde o menu de sugestões aparece.">
-      <Space direction="vertical" size="large" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="large" style={{ width: '100%' }}>
         <Demo label="Popup acima (top)">
           <Mentions
             style={{ width: '100%', maxWidth: 500 }}
@@ -101,7 +101,7 @@ const MentionsShowcase = () => (
 
     <Section title="Somente leitura e desabilitado" description="Estados não editáveis.">
       <Demo>
-        <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+        <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
           <div>
             <Text style={{ fontSize: 12, color: G[400], display: 'block', marginBottom: 6 }}>Somente leitura</Text>
             <Mentions

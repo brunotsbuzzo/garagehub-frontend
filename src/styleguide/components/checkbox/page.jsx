@@ -78,7 +78,7 @@ const CheckboxShowcase = () => {
 
       <Section title="Básico" description="Checkbox simples com estado controlado.">
         <Demo>
-          <Space direction="vertical">
+          <Space orientation="vertical">
             <Checkbox checked={checked} onChange={e => setChecked(e.target.checked)}>
               Aceito os termos de uso do GarageHub
             </Checkbox>
@@ -93,7 +93,7 @@ const CheckboxShowcase = () => {
 
       <Section title="Estados" description="Padrão, desabilitado e indeterminado.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <Checkbox defaultChecked>Revisão agendada</Checkbox>
             <Checkbox>Lembrete por e-mail</Checkbox>
             <Checkbox disabled>Plano premium (bloqueado)</Checkbox>
@@ -107,7 +107,7 @@ const CheckboxShowcase = () => {
 
       <Section title="Grupo de checkboxes" description="Múltipla seleção com Checkbox.Group.">
         <Demo label="Selecione os serviços desejados">
-          <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+          <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
             <Checkbox
               indeterminate={indeterminate}
               checked={checkedAll}
@@ -120,7 +120,7 @@ const CheckboxShowcase = () => {
               value={selectedServices}
               onChange={handleGroupChange}
             >
-              <Space direction="vertical">
+              <Space orientation="vertical">
                 {serviceOptions.map(opt => (
                   <Checkbox key={opt.value} value={opt.value}>{opt.label}</Checkbox>
                 ))}
@@ -130,7 +130,7 @@ const CheckboxShowcase = () => {
               <Alert
                 type="info"
                 showIcon
-                message={`${selectedServices.length} serviço(s) selecionado(s): ${selectedServices.join(', ')}`}
+                title={`${selectedServices.length} serviço(s) selecionado(s): ${selectedServices.join(', ')}`}
                 style={{ marginTop: 8 }}
               />
             )}
@@ -160,7 +160,7 @@ const CheckboxShowcase = () => {
 
       <Section title="Em formulário de agendamento" description="Uso real: seleção de extras ao agendar serviço.">
         <Demo>
-          <Space direction="vertical" size="large" style={{ width: '100%' }}>
+          <Space orientation="vertical" size="large" style={{ width: '100%' }}>
             <div>
               <Text strong style={{ display: 'block', marginBottom: 12 }}>Serviço principal</Text>
               <Checkbox defaultChecked disabled>Revisão Geral (selecionado)</Checkbox>
@@ -168,7 +168,7 @@ const CheckboxShowcase = () => {
             <div>
               <Text strong style={{ display: 'block', marginBottom: 12 }}>Serviços adicionais</Text>
               <Checkbox.Group defaultValue={['oil']}>
-                <Space direction="vertical">
+                <Space orientation="vertical">
                   <Checkbox value="oil">
                     <Space>
                       Troca de Óleo

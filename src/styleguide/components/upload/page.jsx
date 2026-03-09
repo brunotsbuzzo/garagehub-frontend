@@ -167,7 +167,7 @@ const UploadShowcase = () => {
 
       <Section title="Contexto GarageHub — Documentos do veículo" description="Upload de documentos obrigatórios no cadastro.">
         <Demo>
-          <Space direction="vertical" style={{ width: '100%', maxWidth: 460 }} size="middle">
+          <Space orientation="vertical" style={{ width: '100%', maxWidth: 460 }} size="middle">
             {[
               { label: 'CRLV / Documento do veículo', accept: '.pdf,.jpg,.jpeg,.png' },
               { label: 'CNH do proprietário', accept: '.pdf,.jpg,.jpeg,.png' },

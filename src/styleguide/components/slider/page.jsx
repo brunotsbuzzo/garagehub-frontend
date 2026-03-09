@@ -80,7 +80,7 @@ const SliderShowcase = () => {
       <Divider />
 
       <Section title="Range (intervalo)" description="Seleção de intervalo de valores.">
-        <Space direction="vertical" style={{ width: '100%' }} size="large">
+        <Space orientation="vertical" style={{ width: '100%' }} size="large">
           <Demo label="Faixa de preço (R$)">
             <Row gutter={16} align="middle">
               <Col flex="auto">
@@ -179,7 +179,7 @@ const SliderShowcase = () => {
 
       <Section title="Estados" description="Desabilitado.">
         <Demo>
-          <Space direction="vertical" style={{ width: '100%' }} size="large">
+          <Space orientation="vertical" style={{ width: '100%' }} size="large">
             <div>
               <Text style={{ fontSize: 12, color: G[400] }}>Desabilitado — valor fixo</Text>
               <Slider disabled defaultValue={65} />

@@ -31,7 +31,7 @@ const Demo = ({ label, children, style }) => (
 const vehicleItems = [
   { key: '1', label: <Space><CarOutlined />Meus Veículos</Space>, children: (
     <div style={{ padding: 16 }}>
-      <Space direction="vertical" style={{ width: '100%' }} size="small">
+      <Space orientation="vertical" style={{ width: '100%' }} size="small">
         {['Honda Civic 2022', 'Toyota Corolla 2021', 'Ford Ka 2020'].map(v => (
           <div key={v} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff', border: `1px solid ${G[200]}`, borderRadius: 8 }}>
             <Avatar size={32} icon={<CarOutlined />} style={{ background: '#EDFCF7', color: '#0E885F' }} />
@@ -43,7 +43,7 @@ const vehicleItems = [
   )},
   { key: '2', label: <Space><ToolOutlined />Serviços</Space>, children: (
     <div style={{ padding: 16 }}>
-      <Space direction="vertical" style={{ width: '100%' }} size="small">
+      <Space orientation="vertical" style={{ width: '100%' }} size="small">
         {[
           { s: 'Revisão Geral', d: 'Concluído' },
           { s: 'Troca de Óleo', d: 'Em andamento' },
@@ -129,7 +129,7 @@ const TabsShowcase = () => {
       <Divider />
 
       <Section title="Posicionamento" description="top (padrão), bottom, left e right.">
-        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+        <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <Demo label="left">
             <Tabs
               tabPosition="left"

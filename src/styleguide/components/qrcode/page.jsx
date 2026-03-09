@@ -110,7 +110,7 @@ const QRCodeShowcase = () => {
 
       <Section title="Nível de correção de erros" description="L, M, Q, H — quanto maior, mais robusto e mais denso.">
         <Demo>
-          <Space direction="vertical" size="middle">
+          <Space orientation="vertical" size="middle">
             <Segmented
               options={['L', 'M', 'Q', 'H']}
               value={errorLevel}

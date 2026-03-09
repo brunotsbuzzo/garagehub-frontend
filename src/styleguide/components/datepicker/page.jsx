@@ -72,7 +72,7 @@ const DatePickerShowcase = () => (
 
     <Section title="RangePicker" description="Seleção de intervalo de datas.">
       <Demo>
-        <Space direction="vertical" size="middle">
+        <Space orientation="vertical" size="middle">
           <RangePicker locale={locale} />
           <RangePicker
             locale={locale}
@@ -121,7 +121,7 @@ const DatePickerShowcase = () => (
 
     <Section title="Tamanhos e estados" description="Small, Middle, Large — padrão, erro e aviso.">
       <Demo>
-        <Space direction="vertical" size="middle">
+        <Space orientation="vertical" size="middle">
           <Space wrap>
             <DatePicker locale={locale} size="small" placeholder="Small" />
             <DatePicker locale={locale} size="middle" placeholder="Middle" />
@@ -139,7 +139,7 @@ const DatePickerShowcase = () => (
 
     <Section title="Contexto GarageHub — Agendamento" description="Fluxo de agendamento de serviço.">
       <Demo>
-        <Space direction="vertical" size="middle" style={{ width: '100%', maxWidth: 400 }}>
+        <Space orientation="vertical" size="middle" style={{ width: '100%', maxWidth: 400 }}>
           <div>
             <Text style={{ fontSize: 13, fontWeight: 600, display: 'block', marginBottom: 6 }}>
               Data de entrada do veículo

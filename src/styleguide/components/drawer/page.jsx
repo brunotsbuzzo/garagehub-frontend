@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Drawer, Button, Space, Divider, Typography, Tag, Form, Input, Select, Avatar, List } from 'antd'
+import { Drawer, Button, Space, Divider, Typography, Tag, Form, Input, Select, Avatar } from 'antd'
 import { CarOutlined, ToolOutlined, CloseOutlined, PlusOutlined } from '@ant-design/icons'
 
 const { Title, Text, Paragraph } = Typography
@@ -90,7 +90,7 @@ const DrawerShowcase = () => {
               </Button>
             }
           >
-            <Space direction="vertical" style={{ width: '100%' }} size="large">
+            <Space orientation="vertical" style={{ width: '100%' }} size="large">
               <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
                 <Avatar size={56} icon={<CarOutlined />} style={{ background: '#EDFCF7', color: '#0E885F' }} />
                 <div>
@@ -119,21 +119,19 @@ const DrawerShowcase = () => {
 
               <div>
                 <Text strong style={{ display: 'block', marginBottom: 12 }}>Histórico de serviços</Text>
-                <List
-                  size="small"
-                  dataSource={serviceHistory}
-                  renderItem={item => (
-                    <List.Item>
-                      <Space direction="vertical" size={0}>
-                        <Text strong style={{ fontSize: 13 }}>{item.type}</Text>
+                <div>
+                  {serviceHistory.map((item, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: i < serviceHistory.length - 1 ? `1px solid ${G[200]}` : 'none' }}>
+                      <div>
+                        <Text strong style={{ fontSize: 13, display: 'block' }}>{item.type}</Text>
                         <Text style={{ fontSize: 12, color: G[500] }}>{item.date} · {item.workshop}</Text>
-                      </Space>
+                      </div>
                       <Text style={{ color: '#0E885F', fontWeight: 600 }}>
                         R$ {item.value.toFixed(2).replace('.', ',')}
                       </Text>
-                    </List.Item>
-                  )}
-                />
+                    </div>
+                  ))}
+                </div>
               </div>
             </Space>
           </Drawer>

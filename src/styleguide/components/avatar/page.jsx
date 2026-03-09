@@ -144,7 +144,7 @@ const AvatarShowcase = () => (
 
     <Section title="Grupo de avatares" description="Avatar.Group exibe múltiplos avatares compactos.">
       <Demo>
-        <Space direction="vertical" size="large">
+        <Space orientation="vertical" size="large">
           <div>
             <Text style={{ fontSize: 12, color: G[400], display: 'block', marginBottom: 8 }}>Equipe da oficina</Text>
             <Avatar.Group maxCount={4} maxStyle={{ color: '#0E885F', background: '#EDFCF7' }}>
@@ -178,7 +178,7 @@ const AvatarShowcase = () => (
 
     <Section title="Contexto GarageHub" description="Uso real na lista de oficinas e perfil de usuário.">
       <Demo>
-        <Space direction="vertical" style={{ width: '100%' }} size="middle">
+        <Space orientation="vertical" style={{ width: '100%' }} size="middle">
           {[
             { initials: 'OS', name: 'Oficina Silva', sub: 'Mecânica Geral · 4.8 ⭐', color: '#3DD9A4', bg: '#EDFCF7' },
             { initials: 'AM', name: 'Auto Mecânica Central', sub: 'Elétrica · 4.6 ⭐', color: '#1677FF', bg: '#E6F4FF' },

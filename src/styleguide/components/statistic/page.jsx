@@ -1,4 +1,4 @@
-import { Statistic, Space, Divider, Typography, Tag, Row, Col, Card, Progress, CountUp } from 'antd'
+import { Statistic, Space, Divider, Typography, Tag, Row, Col, Card, Progress } from 'antd'
 import { CarOutlined, ToolOutlined, RiseOutlined, FallOutlined, ClockCircleOutlined, CheckCircleOutlined } from '@ant-design/icons'
 
 const { Title, Text, Paragraph } = Typography
