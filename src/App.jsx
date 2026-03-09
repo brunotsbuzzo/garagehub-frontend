@@ -1,8 +1,14 @@
 import { ConfigProvider, theme } from 'antd'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom'
 import StyleguideLayout from './styleguide/Layout'
 import StyleguidePage from './styleguide/page'
+import ButtonShowcase from './styleguide/components/button/page'
+import FloatButtonShowcase from './styleguide/components/floatbutton/page'
+import IconShowcase from './styleguide/components/icon/page'
+import TypographyShowcase from './styleguide/components/typography/page'
+import DividerShowcase from './styleguide/components/divider/page'
 import FormShowcase from './styleguide/components/form/page'
+import Placeholder from './styleguide/components/Placeholder'
 import './index.css'
 
 const designTokens = {
@@ -33,6 +39,21 @@ const designTokens = {
   boxShadowSecondary: '0 1px 2px 0 rgba(0,0,0,.05)',
 }
 
+const componentMap = {
+  button:      ButtonShowcase,
+  floatbutton: FloatButtonShowcase,
+  icon:        IconShowcase,
+  typography:  TypographyShowcase,
+  divider:     DividerShowcase,
+  form:        FormShowcase,
+}
+
+function ComponentPage() {
+  const { component } = useParams()
+  const Page = componentMap[component?.toLowerCase()]
+  return Page ? <Page /> : <Placeholder componentName={component} />
+}
+
 function App() {
   return (
     <ConfigProvider
@@ -44,7 +65,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/styleguide" element={<StyleguideLayout><StyleguidePage /></StyleguideLayout>} />
-          <Route path="/styleguide/components/form" element={<StyleguideLayout><FormShowcase /></StyleguideLayout>} />
+          <Route
+            path="/styleguide/components/:component"
+            element={<StyleguideLayout><ComponentPage /></StyleguideLayout>}
+          />
           <Route path="*" element={<Navigate to="/styleguide" replace />} />
         </Routes>
       </BrowserRouter>
