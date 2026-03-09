@@ -81,7 +81,7 @@ const DrawerShowcase = () => {
           </Button>
           <Drawer
             title="Honda Civic 2022"
-            width={440}
+            size="large"
             open={detailOpen}
             onClose={() => setDetailOpen(false)}
             extra={
@@ -147,7 +147,7 @@ const DrawerShowcase = () => {
           </Button>
           <Drawer
             title="Agendar Serviço"
-            width={420}
+            size="default"
             open={formOpen}
             onClose={() => setFormOpen(false)}
             footer={

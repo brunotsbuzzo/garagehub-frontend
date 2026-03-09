@@ -166,7 +166,7 @@ const PaginationShowcase = () => {
             ))}
             <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: 8 }}>
               <Pagination
-                current={1}
+                defaultCurrent={1}
                 pageSize={5}
                 total={48}
                 showTotal={(total) => `Total: ${total} veículos`}

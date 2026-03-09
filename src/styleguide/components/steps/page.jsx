@@ -41,27 +41,27 @@ const Demo = ({ label, children }) => (
 const scheduleSteps = [
   {
     title: 'Veículo',
-    description: 'Selecione o veículo',
+    content: 'Selecione o veículo',
     icon: <CarOutlined />,
   },
   {
     title: 'Serviço',
-    description: 'Escolha o tipo',
+    content: 'Escolha o tipo',
     icon: <ToolOutlined />,
   },
   {
     title: 'Oficina',
-    description: 'Selecione a oficina',
+    content: 'Selecione a oficina',
     icon: <FileTextOutlined />,
   },
   {
     title: 'Data e Hora',
-    description: 'Escolha o horário',
+    content: 'Escolha o horário',
     icon: <CalendarOutlined />,
   },
   {
     title: 'Confirmação',
-    description: 'Revise e confirme',
+    content: 'Revise e confirme',
     icon: <CheckCircleOutlined />,
   },
 ]
@@ -87,9 +87,9 @@ const StepsShowcase = () => {
           <Steps
             current={1}
             items={[
-              { title: 'Cadastro', description: 'Dados pessoais' },
-              { title: 'Veículo', description: 'Dados do veículo' },
-              { title: 'Confirmação', description: 'Revise tudo' },
+              { title: 'Cadastro', content: 'Dados pessoais' },
+              { title: 'Veículo', content: 'Dados do veículo' },
+              { title: 'Confirmação', content: 'Revise tudo' },
             ]}
           />
         </Demo>
@@ -117,10 +117,10 @@ const StepsShowcase = () => {
             current={2}
             status="error"
             items={[
-              { title: 'Dados Pessoais', description: 'Concluído' },
-              { title: 'Documentos', description: 'Concluído' },
-              { title: 'Pagamento', description: 'Dados inválidos' },
-              { title: 'Confirmação', description: 'Aguardando' },
+              { title: 'Dados Pessoais', content: 'Concluído' },
+              { title: 'Documentos', content: 'Concluído' },
+              { title: 'Pagamento', content: 'Dados inválidos' },
+              { title: 'Confirmação', content: 'Aguardando' },
             ]}
           />
         </Demo>
@@ -131,32 +131,32 @@ const StepsShowcase = () => {
       <Section title="Vertical" description="Orientação vertical — ideal para sidebars e flows longos.">
         <Demo>
           <Steps
-            direction="vertical"
+            orientation="vertical"
             current={1}
             items={[
               {
                 title: 'Serviço solicitado',
-                description: 'Revisão Geral — Honda Civic 2022',
+                content: 'Revisão Geral — Honda Civic 2022',
                 status: 'finish',
               },
               {
                 title: 'Orçamento enviado',
-                description: 'Aguardando sua aprovação',
+                content: 'Aguardando sua aprovação',
                 status: 'process',
               },
               {
                 title: 'Agendamento confirmado',
-                description: 'Data e hora definidos',
+                content: 'Data e hora definidos',
                 status: 'wait',
               },
               {
                 title: 'Serviço em andamento',
-                description: 'Oficina Silva iniciou o trabalho',
+                content: 'Oficina Silva iniciou o trabalho',
                 status: 'wait',
               },
               {
                 title: 'Serviço concluído',
-                description: 'Veículo pronto para retirada',
+                content: 'Veículo pronto para retirada',
                 status: 'wait',
               },
             ]}

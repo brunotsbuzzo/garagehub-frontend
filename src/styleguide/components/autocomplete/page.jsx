@@ -157,7 +157,6 @@ const AutoCompleteShowcase = () => {
         <Demo>
           <AutoComplete
             style={{ width: 320 }}
-            defaultOpen
             options={[
               {
                 label: <Text style={{ fontSize: 11, color: G[400], fontWeight: 600 }}>JAPONESES</Text>,

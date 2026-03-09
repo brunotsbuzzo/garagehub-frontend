@@ -263,7 +263,7 @@ export default function FormShowcase() {
               </Col>
               <Col xs={24} sm={12} md={8}>
                 <Form.Item label="Password" name="password">
-                  <Input.Password placeholder="Senha" prefix={<LockOutlined />} />
+                  <Input.Password autoComplete="current-password" placeholder="Senha" prefix={<LockOutlined />} />
                 </Form.Item>
               </Col>
               <Col xs={24} sm={12} md={8}>
@@ -325,7 +325,7 @@ export default function FormShowcase() {
 
 // Input.Password — oculta o conteúdo
 <Form.Item label="Senha" name="password">
-  <Input.Password placeholder="Mínimo 8 caracteres" />
+  <Input.Password autoComplete="new-password" placeholder="Mínimo 8 caracteres" />
 </Form.Item>
 
 // Input.Search — com botão de busca integrado
