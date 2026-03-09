@@ -1,20 +1,29 @@
 @import "tailwindcss";
 
 /* ── Design Tokens ─────────────────────────────────────────── */
+/*
+ * Extraído do Figma "Ant Design Open Source Community" (node 21299:69211)
+ * Adaptado para a identidade visual GarageHub.
+ */
 :root {
-  /* Primary — Mint Green */
+  /* ── BASE ──────────────────────────────────────────────── */
+  --background:  #FFFFFF;
+  --foreground:  rgba(0, 0, 0, 0.85);   /* Figma: Character/Primary .85  */
+  --foreground-secondary: rgba(0, 0, 0, 0.45); /* Figma: Character/Secondary .45 */
+
+  /* ── PRIMARY — Mint Green (GarageHub brand) ──────────── */
   --color-primary-50:  #EDFCF7;
   --color-primary-100: #D3F9ED;
   --color-primary-200: #A8F2DA;
   --color-primary-300: #70E6C1;
-  --color-primary-400: #3DD9A4;
+  --color-primary-400: #3DD9A4;   /* colorPrimary */
   --color-primary-500: #1CC78E;
   --color-primary-600: #12A875;
   --color-primary-700: #0E885F;
   --color-primary-800: #0E6B4D;
   --color-primary-900: #0C5840;
 
-  /* Neutral — Gray */
+  /* ── NEUTRAL — Gray ──────────────────────────────────── */
   --color-gray-50:  #F9FAFB;
   --color-gray-100: #F3F4F6;
   --color-gray-200: #E5E7EB;
@@ -26,31 +35,47 @@
   --color-gray-800: #1F2937;
   --color-gray-900: #111827;
 
-  /* Semantic */
-  --color-success: #52C41A;
-  --color-warning: #FAAD14;
-  --color-error:   #FF4D4F;
-  --color-info:    #1677FF;
+  /* ── SEMANTIC ─────────────────────────────────────────── */
+  --success: #52C41A;   /* Figma: Character/success */
+  --warning: #FAAD14;
+  --error:   #FF4D4F;   /* Figma: Dust Red/5, Character/danger */
+  --info:    #1677FF;
 
-  /* Surface */
-  --color-bg-layout:    #F5FAF7;
+  /* ── BORDER ───────────────────────────────────────────── */
+  --border:           #D9D9D9;   /* input / component border */
+  --border-secondary: #F0F0F0;   /* Figma: border & divider (divider ↑/↓) */
+  --border-card:      rgba(0, 0, 0, 0.06); /* Figma: card border */
+
+  /* ── SURFACE ──────────────────────────────────────────── */
+  --color-bg-layout:    #F5FAF7;  /* GarageHub green-tinted page bg */
   --color-bg-container: #FFFFFF;
-  --color-border:       #E5E7EB;
 
-  /* Typography */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* ── LAYOUT — from Figma ──────────────────────────────── */
+  --header-bg:     #001529;  /* Figma global-header bg (dark navy) */
+  --header-height: 48px;     /* Figma global-header height */
+  --sider-bg:      #FFFFFF;  /* Figma sider/default bg */
+  --sider-width:   208px;    /* Figma sider width */
 
-  /* Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  /* ── TYPOGRAPHY ───────────────────────────────────────── */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Roboto Mono', 'Courier New', Consolas, monospace;
+
+  /* ── RADIUS ───────────────────────────────────────────── */
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
   --radius-pill: 9999px;
 
-  /* Shadows */
-  --shadow-sm:  0 1px 2px 0 rgba(0,0,0,.05);
-  --shadow-md:  0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
-  --shadow-lg:  0 10px 15px -3px rgba(0,0,0,.08), 0 4px 6px -4px rgba(0,0,0,.05);
+  /* ── SHADOWS — from Figma ─────────────────────────────── */
+  --shadow-sider:     0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+  --shadow-sm:        0 1px 2px 0 rgba(0, 0, 0, 0.03),
+                      0 1px 6px -1px rgba(0, 0, 0, 0.02);
+  --shadow-md:        0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  --shadow-lg:        0 6px 16px 0 rgba(0, 0, 0, 0.08),
+                      0 3px 6px -4px rgba(0, 0, 0, 0.12);
 }
 
 /* ── Global Reset ──────────────────────────────────────────── */
@@ -60,11 +85,33 @@ body {
   margin: 0;
   font-family: var(--font-family);
   background-color: var(--color-bg-layout);
-  color: var(--color-gray-800);
+  color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+}
+
 #root {
   min-height: 100vh;
+}
+
+/* ── Container utility ─────────────────────────────────────── */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container { padding-inline: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: 2rem;
+    max-width: 1280px;
+  }
 }
